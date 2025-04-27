@@ -1,64 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-  <!-- Conditional mapping for numeric selection based on stage -->
+
+  <!-- Strength selection -->
   <category>
     <pattern>1</pattern>
     <template>
       <think>
-        <condition name="stage">
-          <li value="strengths_selection"><srai>MY STRENGTHS ARE problem-solving</srai></li>
-          <li value="weaknesses_selection"><srai>MY WEAKNESSES ARE public speaking</srai></li>
-        </condition>
+        <set name="strengths">problem-solving</set>
+        <set name="stage">weaknesses_selection</set>
       </think>
+      Got it—your strengths are problem-solving.  
+      Now please pick an area to improve by typing its number:
+      1. Public speaking  
+      2. Time management  
+      3. Teamwork  
     </template>
   </category>
+
   <category>
     <pattern>2</pattern>
     <template>
       <think>
-        <condition name="stage">
-          <li value="strengths_selection"><srai>MY STRENGTHS ARE creativity</srai></li>
-          <li value="weaknesses_selection"><srai>MY WEAKNESSES ARE time management</srai></li>
-        </condition>
+        <set name="strengths">creativity</set>
+        <set name="stage">weaknesses_selection</set>
       </think>
+      Got it—your strengths are creativity.  
+      Now please pick an area to improve by typing its number:
+      1. Public speaking  
+      2. Time management  
+      3. Teamwork  
     </template>
   </category>
+
   <category>
     <pattern>3</pattern>
     <template>
       <think>
-        <condition name="stage">
-          <li value="strengths_selection"><srai>MY STRENGTHS ARE data analysis</srai></li>
-          <li value="weaknesses_selection"><srai>MY WEAKNESSES ARE teamwork</srai></li>
-        </condition>
-      </think>
-    </template>
-  </category>
-
-  <!-- Strengths entry and prompt for weaknesses -->
-  <category>
-    <pattern>MY STRENGTHS ARE *</pattern>
-    <template>
-      Got it—your strengths are <star/>. Now, please pick an area to improve from the same list below by typing its number:
-      1. Public speaking
-      2. Time management
-      3. Teamwork
-      <think>
-        <set name="strengths"><star/></set>
+        <set name="strengths">data analysis</set>
         <set name="stage">weaknesses_selection</set>
       </think>
+      Got it—your strengths are data analysis.  
+      Now please pick an area to improve by typing its number:
+      1. Public speaking  
+      2. Time management  
+      3. Teamwork  
     </template>
   </category>
 
-  <!-- Weaknesses entry and trigger for assessment -->
+  <!-- Weakness selection and career trigger -->
   <category>
-    <pattern>MY WEAKNESSES ARE *</pattern>
+    <pattern>1</pattern>
+    <that>Got it—your strengths are *</that>
     <template>
-      Thanks! You’d like to improve <star/>. Let me assess the best career path for you.
       <think>
-        <set name="weaknesses"><star/></set>
-        <srai>ASSESS CAREER</srai>
+        <set name="weaknesses">public speaking</set>
       </think>
+      Thanks—you want to improve public speaking. Let me find your best career match…
+      <srai>ASSESS CAREER</srai>
     </template>
   </category>
+
+  <category>
+    <pattern>2</pattern>
+    <that>Got it—your strengths are *</that>
+    <template>
+      <think>
+        <set name="weaknesses">time management</set>
+      </think>
+      Perfect—you’d like to work on time management. Checking your fit now…
+      <srai>ASSESS CAREER</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>3</pattern>
+    <that>Got it—your strengths are *</that>
+    <template>
+      <think>
+        <set name="weaknesses">teamwork</set>
+      </think>
+      Great—you want to improve teamwork. Let’s see which career suits you…
+      <srai>ASSESS CAREER</srai>
+    </template>
+  </category>
+
 </aiml>
