@@ -1,377 +1,257 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-<!-- Simple 3-question assessment with binary choices -->
+  <!-- Simple 3-question assessment with binary choices -->
 
-<!-- Start the assessment with the first question -->
-<category>
-<pattern>CAREER ASSESSMENT</pattern>
-<template>
-<think>
-<set name="question1">none</set>
-<set name="question2">none</set>
-<set name="question3">none</set>
-<set name="assessment_step">1</set>
-<set name="topic">career_assessment</set>
-</think>
-Let's get started with a simple career assessment. I'll ask you 3 questions to determine which tech career might be the best fit for you.
+  <!-- Start the assessment with the first question -->
+  <category>
+    <pattern>CAREER ASSESSMENT</pattern>
+    <template>
+      <think>
+        <set name="question1">none</set>
+        <set name="question2">none</set>
+        <set name="question3">none</set>
+        <set name="assessment_step">1</set>
+        <set name="topic">career_assessment</set>
+      </think>
+      Let's get started with a simple career assessment. I'll ask you 3 questions to determine which tech career might be the best fit for you.
+      <srai>QUESTION 1</srai>
+    </template>
+  </category>
 
-<srai>QUESTION 1</srai>
-</template>
-</category>
+  <!-- Question 1: Technical vs Creative -->
+  <category>
+    <pattern>QUESTION 1</pattern>
+    <template>
+      <think><set name="assessment_step">1</set></think>
+      Do you prefer working with logic and data, or visual design and user experience?
+      <button>Logic and Data</button>
+      <button>Visual Design and User Experience</button>
+    </template>
+  </category>
+  <category>
+    <pattern>LOGIC AND DATA</pattern>
+    <template>
+      <think>
+        <set name="question1">technical</set>
+        <set name="assessment_step">2</set>
+      </think>
+      <srai>QUESTION 2</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>VISUAL DESIGN AND USER EXPERIENCE</pattern>
+    <template>
+      <think>
+        <set name="question1">creative</set>
+        <set name="assessment_step">2</set>
+      </think>
+      <srai>QUESTION 2</srai>
+    </template>
+  </category>
 
-<!-- Question 1: Technical vs Creative -->
-<category>
-<pattern>QUESTION 1</pattern>
-<template>
-<think><set name="assessment_step">1</set></think>
-Do you prefer working with logic and data, or visual design and user experience?
-<button>Logic and Data</button>
-<button>Visual Design and User Experience</button>
-</template>
-</category>
+  <!-- Question 2: Detail-oriented vs Big Picture -->
+  <category>
+    <pattern>QUESTION 2</pattern>
+    <template>
+      <think><set name="assessment_step">2</set></think>
+      Do you prefer focusing on details and optimization, or building new systems from scratch?
+      <button>Details and Optimization</button>
+      <button>Building New Systems</button>
+    </template>
+  </category>
+  <category>
+    <pattern>DETAILS AND OPTIMIZATION</pattern>
+    <template>
+      <think>
+        <set name="question2">detail</set>
+        <set name="assessment_step">3</set>
+      </think>
+      <srai>QUESTION 3</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>BUILDING NEW SYSTEMS</pattern>
+    <template>
+      <think>
+        <set name="question2">systems</set>
+        <set name="assessment_step">3</set>
+      </think>
+      <srai>QUESTION 3</srai>
+    </template>
+  </category>
 
-<!-- Question 1 responses -->
-<category>
-<pattern>LOGIC AND DATA</pattern>
-<template>
-<think>
-<set name="question1">technical</set>
-<set name="assessment_step">2</set>
-</think>
-<srai>QUESTION 2</srai>
-</template>
-</category>
+  <!-- Question 3: Independent vs Collaborative -->
+  <category>
+    <pattern>QUESTION 3</pattern>
+    <template>
+      <think><set name="assessment_step">3</set></think>
+      Do you prefer working independently on focused tasks, or collaborating with teams on larger projects?
+      <button>Working Independently</button>
+      <button>Collaborating with Teams</button>
+    </template>
+  </category>
+  <category>
+    <pattern>WORKING INDEPENDENTLY</pattern>
+    <template>
+      <think>
+        <set name="question3">independent</set>
+      </think>
+      <srai>CALCULATE SIMPLE RESULTS</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>COLLABORATING WITH TEAMS</pattern>
+    <template>
+      <think>
+        <set name="question3">collaborative</set>
+      </think>
+      <srai>CALCULATE SIMPLE RESULTS</srai>
+    </template>
+  </category>
 
-<category>
-<pattern>VISUAL DESIGN AND USER EXPERIENCE</pattern>
-<template>
-<think>
-<set name="question1">creative</set>
-<set name="assessment_step">2</set>
-</think>
-<srai>QUESTION 2</srai>
-</template>
-</category>
-
-<!-- Question 2: Detail-oriented vs Big Picture -->
-<category>
-<pattern>QUESTION 2</pattern>
-<template>
-Do you prefer focusing on details and optimization, or building new systems from scratch?
-<button>Details and Optimization</button>
-<button>Building New Systems</button>
-</template>
-</category>
-
-<!-- Question 2 responses -->
-<category>
-<pattern>DETAILS AND OPTIMIZATION</pattern>
-<template>
-<think>
-<set name="question2">detail</set>
-<set name="assessment_step">3</set>
-</think>
-<srai>QUESTION 3</srai>
-</template>
-</category>
-
-<category>
-<pattern>BUILDING NEW SYSTEMS</pattern>
-<template>
-<think>
-<set name="question2">systems</set>
-<set name="assessment_step">3</set>
-</think>
-<srai>QUESTION 3</srai>
-</template>
-</category>
-
-<!-- Question 3: Independent vs Collaborative -->
-<category>
-<pattern>QUESTION 3</pattern>
-<template>
-Do you prefer working independently on focused tasks, or collaborating with teams on larger projects?
-<button>Working Independently</button>
-<button>Collaborating with Teams</button>
-</template>
-</category>
-
-<!-- Question 3 responses -->
-<category>
-<pattern>WORKING INDEPENDENTLY</pattern>
-<template>
-<think>
-<set name="question3">independent</set>
-</think>
-<srai>CALCULATE SIMPLE RESULTS</srai>
-</template>
-</category>
-
-<category>
-<pattern>COLLABORATING WITH TEAMS</pattern>
-<template>
-<think>
-<set name="question3">collaborative</set>
-</think>
-<srai>CALCULATE SIMPLE RESULTS</srai>
-</template>
-</category>
-
-<!-- Simple calculation based on the 3 binary responses -->
-<category>
-<pattern>CALCULATE SIMPLE RESULTS</pattern>
-<template>
-<think>
-<!-- Map the 8 possible outcome combinations to career paths -->
-<condition name="question1">
-    <li value="technical">
-        <condition name="question2">
-            <li value="detail">
+  <!-- Calculate and show the result -->
+  <category>
+    <pattern>CALCULATE SIMPLE RESULTS</pattern>
+    <template>
+      <think>
+        <condition name="question1">
+          <li value="technical">
+            <condition name="question2">
+              <li value="detail">
                 <condition name="question3">
-                    <li value="independent">
-                        <!-- Technical + Detail + Independent = Data Analyst -->
-                        <set name="best_career">Data Analyst</set>
-                    </li>
-                    <li value="collaborative">
-                        <!-- Technical + Detail + Collaborative = System Administrator -->
-                        <set name="best_career">System Administrator</set>
-                    </li>
+                  <li value="independent">
+                    <set name="best_career">Data Analyst</set>
+                  </li>
+                  <li value="collaborative">
+                    <set name="best_career">System Administrator</set>
+                  </li>
                 </condition>
-            </li>
-            <li value="systems">
+              </li>
+              <li value="systems">
                 <condition name="question3">
-                    <li value="independent">
-                        <!-- Technical + Systems + Independent = Machine Learning Engineer -->
-                        <set name="best_career">Machine Learning Engineer</set>
-                    </li>
-                    <li value="collaborative">
-                        <!-- Technical + Systems + Collaborative = Fullstack Developer -->
-                        <set name="best_career">Fullstack Developer</set>
-                    </li>
+                  <li value="independent">
+                    <set name="best_career">Machine Learning Engineer</set>
+                  </li>
+                  <li value="collaborative">
+                    <set name="best_career">Fullstack Developer</set>
+                  </li>
                 </condition>
-            </li>
-        </condition>
-    </li>
-    <li value="creative">
-        <condition name="question2">
-            <li value="detail">
-                <condition name="question3">
-                    <li value="independent">
-                        <!-- Creative + Detail + Independent = UI Designer -->
-                        <set name="best_career">UI Designer</set>
-                    </li>
-                    <li value="collaborative">
-                        <!-- Creative + Detail + Collaborative = UI Designer (same as above) -->
-                        <set name="best_career">UI Designer</set>
-                    </li>
-                </condition>
-            </li>
-            <li value="systems">
-                <condition name="question3">
-                    <li value="independent">
-                        <!-- Creative + Systems + Independent = Fullstack Developer -->
-                        <set name="best_career">Fullstack Developer</set>
-                    </li>
-                    <li value="collaborative">
-                        <!-- Creative + Systems + Collaborative = Fullstack Developer -->
-                        <set name="best_career">Fullstack Developer</set>
-                    </li>
-                </condition>
-            </li>
-        </condition>
-    </li>
-</condition>
-
-<!-- Store result for later use -->
-<set name="assessment_result"><get name="best_career"/></set>
-<set name="selected_career"><get name="best_career"/></set>
-<set name="topic">assessment_result</set>
-</think>
-
-<b>Based on your responses, your best career match is: <get name="best_career"/></b>
-
-<condition name="best_career">
-    <li value="Data Analyst">
-        Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
-    </li>
-    <li value="Fullstack Developer">
-        Fullstack Developers build complete web applications. You would enjoy working on both frontend and backend technologies.
-    </li>
-    <li value="UI Designer">
-        UI Designers create user interfaces that are both functional and beautiful. You would enjoy making products that users love to interact with.
-    </li>
-    <li value="System Administrator">
-        System Administrators ensure networks and servers run smoothly. You would enjoy solving technical problems and maintaining critical infrastructure.
-    </li>
-    <li value="Machine Learning Engineer">
-        Machine Learning Engineers build AI systems and algorithms. You would enjoy working on cutting-edge technology and complex problems.
-    </li>
-</condition>
-
-Would you like to know more about this career?
-<button>Yes</button>
-<button>No</button>
-</template>
-</category>
-
-<!-- Topic for assessment results -->
-<topic name="assessment_result">
-    <category>
-        <pattern>YES</pattern>
-        <template>
-            <think>
-                <set name="topic">career_info</set>
-            </think>
-            <srai>CAREER INFO <get name="assessment_result"/></srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>NO</pattern>
-        <template>
-            Thank you for completing the assessment! If you change your mind and want to learn more about your results later, you can access that information from the main menu.
-            <think><set name="topic">general</set></think>
-            <button>Return to Main Menu</button>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>RETURN TO MAIN MENU</pattern>
-        <template>
-            <think><set name="topic">general</set></think>
-            <srai>MAIN MENU</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>*</pattern>
-        <template>
-            I didn't understand that. Would you like to know more about your career match?
-            <button>Yes</button>
-            <button>No</button>
-            <button>Return to Main Menu</button>
-        </template>
-    </category>
-</topic>
-
-<!-- Make sure all patterns also work within the career_assessment topic -->
-<topic name="career_assessment">
-    <category>
-        <pattern>LOGIC AND DATA</pattern>
-        <template>
-            <think>
-                <set name="question1">technical</set>
-                <set name="assessment_step">2</set>
-            </think>
-            <srai>QUESTION 2</srai>
-        </template>
-    </category>
-
-    <category>
-        <pattern>VISUAL DESIGN AND USER EXPERIENCE</pattern>
-        <template>
-            <think>
-                <set name="question1">creative</set>
-                <set name="assessment_step">2</set>
-            </think>
-            <srai>QUESTION 2</srai>
-        </template>
-    </category>
-
-    <category>
-        <pattern>DETAILS AND OPTIMIZATION</pattern>
-        <template>
-            <think>
-                <set name="question2">detail</set>
-                <set name="assessment_step">3</set>
-            </think>
-            <srai>QUESTION 3</srai>
-        </template>
-    </category>
-
-    <category>
-        <pattern>BUILDING NEW SYSTEMS</pattern>
-        <template>
-            <think>
-                <set name="question2">systems</set>
-                <set name="assessment_step">3</set>
-            </think>
-            <srai>QUESTION 3</srai>
-        </template>
-    </category>
-
-    <category>
-        <pattern>WORKING INDEPENDENTLY</pattern>
-        <template>
-            <think>
-                <set name="question3">independent</set>
-            </think>
-            <srai>CALCULATE SIMPLE RESULTS</srai>
-        </template>
-    </category>
-
-    <category>
-        <pattern>COLLABORATING WITH TEAMS</pattern>
-        <template>
-            <think>
-                <set name="question3">collaborative</set>
-            </think>
-            <srai>CALCULATE SIMPLE RESULTS</srai>
-        </template>
-    </category>
-
-    <!-- Navigation patterns -->
-    <category>
-        <pattern>RETURN TO MAIN MENU</pattern>
-        <template>
-            <think><set name="topic">general</set></think>
-            <srai>MAIN MENU</srai>
-        </template>
-    </category>
-
-    <!-- Question patterns -->
-    <category>
-        <pattern>QUESTION 1</pattern>
-        <template><srai>QUESTION 1</srai></template>
-    </category>
-
-    <category>
-        <pattern>QUESTION 2</pattern>
-        <template><srai>QUESTION 2</srai></template>
-    </category>
-
-    <category>
-        <pattern>QUESTION 3</pattern>
-        <template><srai>QUESTION 3</srai></template>
-    </category>
-
-    <!-- Catch-all pattern -->
-    <category>
-        <pattern>*</pattern>
-        <template>
-            <condition name="assessment_step">
-                <li value="1"><srai>QUESTION 1</srai></li>
-                <li value="2"><srai>QUESTION 2</srai></li>
-                <li value="3"><srai>QUESTION 3</srai></li>
-                <li>
-                    I didn't understand that. Please select one of the options above or:
-                    <button>Return to Main Menu</button>
-                </li>
+              </li>
             </condition>
-        </template>
-    </category>
-</topic>
+          </li>
+          <li value="creative">
+            <condition name="question2">
+              <li value="detail">
+                <condition name="question3">
+                  <li value="independent">
+                    <set name="best_career">UI Designer</set>
+                  </li>
+                  <li value="collaborative">
+                    <set name="best_career">UI Designer</set>
+                  </li>
+                </condition>
+              </li>
+              <li value="systems">
+                <condition name="question3">
+                  <li value="independent">
+                    <set name="best_career">Fullstack Developer</set>
+                  </li>
+                  <li value="collaborative">
+                    <set name="best_career">Fullstack Developer</set>
+                  </li>
+                </condition>
+              </li>
+            </condition>
+          </li>
+        </condition>
 
-<!-- Debug category -->
-<category>
+        <!-- save for later -->
+        <set name="assessment_result"><get name="best_career"/></set>
+        <set name="topic">assessment_result</set>
+      </think>
+
+      <b>Based on your responses, your best career match is: <get name="best_career"/></b>
+      <condition name="best_career">
+        <li value="Data Analyst">
+          Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
+        </li>
+        <li value="Fullstack Developer">
+          Fullstack Developers build complete web applications. You would enjoy working on both frontend and backend technologies.
+        </li>
+        <li value="UI Designer">
+          UI Designers create user interfaces that are both functional and beautiful. You would enjoy making products that users love to interact with.
+        </li>
+        <li value="System Administrator">
+          System Administrators ensure networks and servers run smoothly. You would enjoy solving technical problems and maintaining critical infrastructure.
+        </li>
+        <li value="Machine Learning Engineer">
+          Machine Learning Engineers build AI systems and algorithms. You would enjoy working on cutting-edge technology and complex problems.
+        </li>
+      </condition>
+
+      Would you like to know more about this career?
+      <button>Yes</button>
+      <button>No</button>
+    </template>
+  </category>
+
+  <!-- Handle “Yes” and “No” after showing the result -->
+  <topic name="assessment_result">
+    <category>
+      <pattern>YES</pattern>
+      <template>
+        <think>
+          <!-- switch topic so that career_info patterns become active -->
+          <set name="topic">career_info</set>
+        </think>
+        <condition name="best_career">
+          <li value="Data Analyst"><srai>DATA ANALYST</srai></li>
+          <li value="Fullstack Developer"><srai>FULLSTACK DEVELOPER</srai></li>
+          <li value="UI Designer"><srai>UI DESIGNER</srai></li>
+          <li value="System Administrator"><srai>SYSTEM ADMINISTRATOR</srai></li>
+          <li value="Machine Learning Engineer"><srai>MACHINE LEARNING ENGINEER</srai></li>
+        </condition>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NO</pattern>
+      <template>
+        Thank you for completing the assessment! If you change your mind and want to learn more about your results later, you can access that information from the main menu.
+        <think><set name="topic">general</set></think>
+        <button>Return to Main Menu</button>
+      </template>
+    </category>
+
+    <category>
+      <pattern>RETURN TO MAIN MENU</pattern>
+      <template>
+        <think><set name="topic">general</set></think>
+        <srai>MAIN MENU</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>*</pattern>
+      <template>
+        I didn’t understand that. Would you like to know more about your career match?
+        <button>Yes</button>
+        <button>No</button>
+        <button>Return to Main Menu</button>
+      </template>
+    </category>
+  </topic>
+
+  <!-- Debug category -->
+  <category>
     <pattern>DEBUG ASSESSMENT</pattern>
     <template>
-        Question 1: <get name="question1"/>
-        Question 2: <get name="question2"/>
-        Question 3: <get name="question3"/>
-        Result: <get name="best_career"/>
-        Current Step: <get name="assessment_step"/>
-        Current Topic: <get name="topic"/>
+      Question 1: <get name="question1"/><br/>
+      Question 2: <get name="question2"/><br/>
+      Question 3: <get name="question3"/><br/>
+      Result: <get name="best_career"/><br/>
+      Current Step: <get name="assessment_step"/><br/>
+      Current Topic: <get name="topic"/>
     </template>
-</category>
+  </category>
 </aiml>
