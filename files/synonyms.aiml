@@ -5,8 +5,14 @@
     <pattern>DEBUGGING</pattern>
     <template><srai>1</srai></template> <!-- Redirects to "problem-solving" -->
   </category>
+  
   <category>
     <pattern>ANALYTICS</pattern>
     <template><srai>3</srai></template> <!-- Redirects to "data analysis" -->
+  </category>
+  
+  <category>
+    <pattern>CREATIVE</pattern>
+    <template><srai>2</srai></template> <!-- Redirects to "creativity" -->
   </category>
 </aiml>

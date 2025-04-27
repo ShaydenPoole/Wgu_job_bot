@@ -3,11 +3,8 @@
   <!-- Greeting triggers -->
   <category>
     <pattern>HI</pattern>
-    <pattern>HELLO</pattern>
-    <pattern>START</pattern>
-    <pattern>HEY</pattern>
     <template>
-      Hello! I’m CareerBot. To begin, select your top strength by typing its number:
+      Hello! I'm CareerBot. To begin, select your top strength by typing its number:
       1. Problem-solving
       2. Creativity
       3. Data analysis
@@ -15,5 +12,20 @@
         <set name="stage">strengths_selection</set>
       </think>
     </template>
+  </category>
+  
+  <category>
+    <pattern>HELLO</pattern>
+    <template><srai>HI</srai></template>
+  </category>
+  
+  <category>
+    <pattern>START</pattern>
+    <template><srai>HI</srai></template>
+  </category>
+  
+  <category>
+    <pattern>HEY</pattern>
+    <template><srai>HI</srai></template>
   </category>
 </aiml>

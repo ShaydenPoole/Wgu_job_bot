@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-  <!-- Strength selection -->
+  <!-- Strength selection - we need individual categories for each pattern -->
   <category>
     <pattern>1</pattern>
-    <pattern>2</pattern>
-    <pattern>3</pattern>
     <template>
       <condition name="stage">
         <li value="strengths_selection">
           <think>
-            <set name="strengths">
-              <condition>
-                <li><bot name="pattern">1</bot>problem-solving</li>
-                <li><bot name="pattern">2</bot>creativity</li>
-                <li><bot name="pattern">3</bot>data analysis</li>
-              </condition>
-            </set>
+            <set name="selected_pattern">1</set>
+            <set name="strengths">problem-solving</set>
             <set name="stage">weaknesses_selection</set>
           </think>
           Got it! Now pick an area to improve by typing its number:
@@ -24,28 +17,106 @@
           6. Teamwork  
         </li>
         <li>
-          I’m not asking for strengths right now. Please follow the current prompt.
+          I'm not asking for strengths right now. Please follow the current prompt.
         </li>
       </condition>
     </template>
   </category>
-
-  <!-- Weakness selection -->
+  
+  <category>
+    <pattern>2</pattern>
+    <template>
+      <condition name="stage">
+        <li value="strengths_selection">
+          <think>
+            <set name="selected_pattern">2</set>
+            <set name="strengths">creativity</set>
+            <set name="stage">weaknesses_selection</set>
+          </think>
+          Got it! Now pick an area to improve by typing its number:
+          4. Public speaking  
+          5. Time management  
+          6. Teamwork  
+        </li>
+        <li>
+          I'm not asking for strengths right now. Please follow the current prompt.
+        </li>
+      </condition>
+    </template>
+  </category>
+  
+  <category>
+    <pattern>3</pattern>
+    <template>
+      <condition name="stage">
+        <li value="strengths_selection">
+          <think>
+            <set name="selected_pattern">3</set>
+            <set name="strengths">data analysis</set>
+            <set name="stage">weaknesses_selection</set>
+          </think>
+          Got it! Now pick an area to improve by typing its number:
+          4. Public speaking  
+          5. Time management  
+          6. Teamwork  
+        </li>
+        <li>
+          I'm not asking for strengths right now. Please follow the current prompt.
+        </li>
+      </condition>
+    </template>
+  </category>
+  
+  <!-- Weakness selection - individual categories for each pattern -->
   <category>
     <pattern>4</pattern>
+    <template>
+      <condition name="stage">
+        <li value="weaknesses_selection">
+          <think>
+            <set name="selected_pattern">4</set>
+            <set name="weaknesses">public speaking</set>
+            <set name="stage">assessment</set>
+          </think>
+          Thanks! Analyzing your fit...
+          <srai>ASSESS CAREER</srai>
+        </li>
+        <li>
+          Please select a strength first (1, 2, or 3).
+        </li>
+      </condition>
+    </template>
+  </category>
+  
+  <category>
     <pattern>5</pattern>
+    <template>
+      <condition name="stage">
+        <li value="weaknesses_selection">
+          <think>
+            <set name="selected_pattern">5</set>
+            <set name="weaknesses">time management</set>
+            <set name="stage">assessment</set>
+          </think>
+          Thanks! Analyzing your fit...
+          <srai>ASSESS CAREER</srai>
+        </li>
+        <li>
+          Please select a strength first (1, 2, or 3).
+        </li>
+      </condition>
+    </template>
+  </category>
+  
+  <category>
     <pattern>6</pattern>
     <template>
       <condition name="stage">
         <li value="weaknesses_selection">
           <think>
-            <set name="weaknesses">
-              <condition>
-                <li><bot name="pattern">4</bot>public speaking</li>
-                <li><bot name="pattern">5</bot>time management</li>
-                <li><bot name="pattern">6</bot>teamwork</li>
-              </condition>
-            </set>
+            <set name="selected_pattern">6</set>
+            <set name="weaknesses">teamwork</set>
+            <set name="stage">assessment</set>
           </think>
           Thanks! Analyzing your fit...
           <srai>ASSESS CAREER</srai>

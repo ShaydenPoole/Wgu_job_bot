@@ -10,7 +10,7 @@
       3. Cloud Computing
     </template>
   </category>
-
+  
   <!-- Cybersecurity -->
   <category>
     <pattern>CYBERSECURITY_SPECIALIST_COURSES</pattern>
@@ -32,7 +32,7 @@
       3. Prototyping with Figma
     </template>
   </category>
-
+  
   <!-- Data Analyst -->
   <category>
     <pattern>DATA_ANALYST_COURSES</pattern>
@@ -43,7 +43,7 @@
       3. Data Visualization with Python
     </template>
   </category>
-
+  
   <!-- Systems Analyst -->
   <category>
     <pattern>SYSTEMS_ANALYST_COURSES</pattern>
