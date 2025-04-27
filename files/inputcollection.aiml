@@ -10,10 +10,10 @@
         <set name="stage">weaknesses_selection</set>
       </think>
       Got it—your strengths are problem-solving.  
-      Now please pick an area to improve by typing its number:
-      1. Public speaking  
-      2. Time management  
-      3. Teamwork  
+      Now please pick an area to improve by typing its number:  
+      4. Public speaking  
+      5. Time management  
+      6. Teamwork  
     </template>
   </category>
 
@@ -25,10 +25,10 @@
         <set name="stage">weaknesses_selection</set>
       </think>
       Got it—your strengths are creativity.  
-      Now please pick an area to improve by typing its number:
-      1. Public speaking  
-      2. Time management  
-      3. Teamwork  
+      Now please pick an area to improve by typing its number:  
+      4. Public speaking  
+      5. Time management  
+      6. Teamwork  
     </template>
   </category>
 
@@ -40,47 +40,61 @@
         <set name="stage">weaknesses_selection</set>
       </think>
       Got it—your strengths are data analysis.  
-      Now please pick an area to improve by typing its number:
-      1. Public speaking  
-      2. Time management  
-      3. Teamwork  
+      Now please pick an area to improve by typing its number:  
+      4. Public speaking  
+      5. Time management  
+      6. Teamwork  
     </template>
   </category>
 
-  <!-- Weakness selection and career trigger -->
+  <!-- Weakness selection (only when last bot reply began with “Got it—your strengths are …”) -->
   <category>
-    <pattern>1</pattern>
+    <pattern>4</pattern>
     <that>Got it—your strengths are *</that>
     <template>
-      <think>
-        <set name="weaknesses">public speaking</set>
-      </think>
+      <think><set name="weaknesses">public speaking</set></think>
       Thanks—you want to improve public speaking. Let me find your best career match…
       <srai>ASSESS CAREER</srai>
     </template>
   </category>
 
   <category>
-    <pattern>2</pattern>
+    <pattern>5</pattern>
     <that>Got it—your strengths are *</that>
     <template>
-      <think>
-        <set name="weaknesses">time management</set>
-      </think>
+      <think><set name="weaknesses">time management</set></think>
       Perfect—you’d like to work on time management. Checking your fit now…
       <srai>ASSESS CAREER</srai>
     </template>
   </category>
 
   <category>
-    <pattern>3</pattern>
+    <pattern>6</pattern>
     <that>Got it—your strengths are *</that>
     <template>
-      <think>
-        <set name="weaknesses">teamwork</set>
-      </think>
+      <think><set name="weaknesses">teamwork</set></think>
       Great—you want to improve teamwork. Let’s see which career suits you…
       <srai>ASSESS CAREER</srai>
+    </template>
+  </category>
+
+  <!-- Catch-all when users type 1–3 at the wrong time -->
+  <category>
+    <pattern>1</pattern>
+    <template>
+      I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
+    </template>
+  </category>
+  <category>
+    <pattern>2</pattern>
+    <template>
+      I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
+    </template>
+  </category>
+  <category>
+    <pattern>3</pattern>
+    <template>
+      I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
     </template>
   </category>
 
