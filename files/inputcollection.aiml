@@ -1,101 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-
   <!-- Strength selection -->
   <category>
     <pattern>1</pattern>
-    <template>
-      <think>
-        <set name="strengths">problem-solving</set>
-        <set name="stage">weaknesses_selection</set>
-      </think>
-      Got it—your strengths are problem-solving.  
-      Now please pick an area to improve by typing its number:  
-      4. Public speaking  
-      5. Time management  
-      6. Teamwork  
-    </template>
-  </category>
-
-  <category>
     <pattern>2</pattern>
-    <template>
-      <think>
-        <set name="strengths">creativity</set>
-        <set name="stage">weaknesses_selection</set>
-      </think>
-      Got it—your strengths are creativity.  
-      Now please pick an area to improve by typing its number:  
-      4. Public speaking  
-      5. Time management  
-      6. Teamwork  
-    </template>
-  </category>
-
-  <category>
     <pattern>3</pattern>
     <template>
-      <think>
-        <set name="strengths">data analysis</set>
-        <set name="stage">weaknesses_selection</set>
-      </think>
-      Got it—your strengths are data analysis.  
-      Now please pick an area to improve by typing its number:  
-      4. Public speaking  
-      5. Time management  
-      6. Teamwork  
+      <condition name="stage">
+        <li value="strengths_selection">
+          <think>
+            <set name="strengths">
+              <condition>
+                <li><bot name="pattern">1</bot>problem-solving</li>
+                <li><bot name="pattern">2</bot>creativity</li>
+                <li><bot name="pattern">3</bot>data analysis</li>
+              </condition>
+            </set>
+            <set name="stage">weaknesses_selection</set>
+          </think>
+          Got it! Now pick an area to improve by typing its number:
+          4. Public speaking  
+          5. Time management  
+          6. Teamwork  
+        </li>
+        <li>
+          I’m not asking for strengths right now. Please follow the current prompt.
+        </li>
+      </condition>
     </template>
   </category>
 
-  <!-- Weakness selection (only when last bot reply began with “Got it—your strengths are …”) -->
+  <!-- Weakness selection -->
   <category>
     <pattern>4</pattern>
-    <that>Got it—your strengths are *</that>
-    <template>
-      <think><set name="weaknesses">public speaking</set></think>
-      Thanks—you want to improve public speaking. Let me find your best career match…
-      <srai>ASSESS CAREER</srai>
-    </template>
-  </category>
-
-  <category>
     <pattern>5</pattern>
-    <that>Got it—your strengths are *</that>
-    <template>
-      <think><set name="weaknesses">time management</set></think>
-      Perfect—you’d like to work on time management. Checking your fit now…
-      <srai>ASSESS CAREER</srai>
-    </template>
-  </category>
-
-  <category>
     <pattern>6</pattern>
-    <that>Got it—your strengths are *</that>
     <template>
-      <think><set name="weaknesses">teamwork</set></think>
-      Great—you want to improve teamwork. Let’s see which career suits you…
-      <srai>ASSESS CAREER</srai>
+      <condition name="stage">
+        <li value="weaknesses_selection">
+          <think>
+            <set name="weaknesses">
+              <condition>
+                <li><bot name="pattern">4</bot>public speaking</li>
+                <li><bot name="pattern">5</bot>time management</li>
+                <li><bot name="pattern">6</bot>teamwork</li>
+              </condition>
+            </set>
+          </think>
+          Thanks! Analyzing your fit...
+          <srai>ASSESS CAREER</srai>
+        </li>
+        <li>
+          Please select a strength first (1, 2, or 3).
+        </li>
+      </condition>
     </template>
   </category>
-
-  <!-- Catch-all when users type 1–3 at the wrong time -->
-  <category>
-    <pattern>1</pattern>
-    <template>
-      I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
-    </template>
-  </category>
-  <category>
-    <pattern>2</pattern>
-    <template>
-      I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
-    </template>
-  </category>
-  <category>
-    <pattern>3</pattern>
-    <template>
-      I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
-    </template>
-  </category>
-
 </aiml>

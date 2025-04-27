@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-  <!-- Combine strength and weakness to determine career -->
   <category>
     <pattern>ASSESS CAREER</pattern>
     <template>
@@ -29,7 +28,7 @@
           </li>
         </condition>
       </think>
-      Based on your strengths and improvement area, <get name="career"/> is the ideal career for you.
+      Based on your profile, <get name="career"/> is your ideal career!
       <srai><get name="career"/>_COURSES</srai>
     </template>
   </category>

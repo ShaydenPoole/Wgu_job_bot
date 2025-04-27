@@ -1,46 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+  <!-- Greeting triggers -->
   <category>
     <pattern>HI</pattern>
-    <template>
-      Hello! I’m CareerBot. To begin, please select your top strength by typing the corresponding number:
-      1. Problem-solving
-      2. Creativity
-      3. Data analysis
-      <think><set name="stage">strengths_selection</set></think>
-    </template>
-  </category>
-
-  <category>
     <pattern>HELLO</pattern>
-    <template>
-      Hello! I’m CareerBot. To begin, please select your top strength by typing the corresponding number:
-      1. Problem-solving
-      2. Creativity
-      3. Data analysis
-      <think><set name="stage">strengths_selection</set></think>
-    </template>
-  </category>
-
-  <category>
     <pattern>START</pattern>
-    <template>
-      Welcome! I’m CareerBot. To begin, please select your top strength by typing the corresponding number:
-      1. Problem-solving
-      2. Creativity
-      3. Data analysis
-      <think><set name="stage">strengths_selection</set></think>
-    </template>
-  </category>
-
-  <category>
     <pattern>HEY</pattern>
     <template>
-      Hey there! I’m CareerBot. To begin, please select your top strength by typing the corresponding number:
+      Hello! I’m CareerBot. To begin, select your top strength by typing its number:
       1. Problem-solving
       2. Creativity
       3. Data analysis
-      <think><set name="stage">strengths_selection</set></think>
+      <think>
+        <set name="stage">strengths_selection</set>
+      </think>
     </template>
   </category>
 </aiml>

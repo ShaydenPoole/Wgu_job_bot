@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+  <!-- Map variations to strengths -->
   <category>
     <pattern>DEBUGGING</pattern>
-    <template><srai>MY STRENGTHS ARE problem-solving</srai></template>
+    <template><srai>1</srai></template> <!-- Redirects to "problem-solving" -->
   </category>
   <category>
     <pattern>ANALYTICS</pattern>
-    <template><srai>MY STRENGTHS ARE data analysis</srai></template>
+    <template><srai>3</srai></template> <!-- Redirects to "data analysis" -->
   </category>
 </aiml>

@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
   <category>
-    <pattern>*</pattern>
+    <pattern>_</pattern> <!-- Catch-all -->
     <template>
-      I’m sorry, I didn’t catch that. Could you rephrase or type "help" for guidance?
-      <srai>REPROMPT</srai>
+      <condition name="stage">
+        <li value="strengths_selection">Please choose a strength (1, 2, or 3).</li>
+        <li value="weaknesses_selection">Please choose a weakness (4, 5, or 6).</li>
+        <li>Type "help" for guidance.</li>
+      </condition>
     </template>
   </category>
-  <category>
-    <pattern>REPROMPT</pattern>
-    <template>
-      Please choose from the options I provided or ask for help by typing "help."
-    </template>
-  </category>
+
   <category>
     <pattern>HELP</pattern>
     <template>
-      You can start by saying "Hi" or "Hello," then tell me your strengths and weaknesses when prompted.
+      Start by saying "Hi"! Then follow the prompts to select strengths/weaknesses.
     </template>
   </category>
 </aiml>

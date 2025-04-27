@@ -1,120 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-
-  <!-- Strength selection: only active when stage is strengths_selection -->
+  <!-- Software Engineering -->
   <category>
-    <pattern>1</pattern>
+    <pattern>SOFTWARE_ENGINEER_COURSES</pattern>
     <template>
-      <condition name="stage">
-        <li value="strengths_selection">
-          <think>
-            <set name="strengths">problem-solving</set>
-            <set name="stage">weaknesses_selection</set>
-          </think>
-          Got it—your strengths are problem-solving.  
-          Now please pick an area to improve by typing its number:
-          4. Public speaking  
-          5. Time management  
-          6. Teamwork  
-        </li>
-        <li>
-          I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
-        </li>
-      </condition>
+      For Software Engineering, take:
+      1. Advanced Python
+      2. Algorithms &amp; Data Structures
+      3. Cloud Computing
     </template>
   </category>
 
+  <!-- Cybersecurity -->
   <category>
-    <pattern>2</pattern>
+    <pattern>CYBERSECURITY_SPECIALIST_COURSES</pattern>
     <template>
-      <condition name="stage">
-        <li value="strengths_selection">
-          <think>
-            <set name="strengths">creativity</set>
-            <set name="stage">weaknesses_selection</set>
-          </think>
-          Got it—your strengths are creativity.  
-          Now please pick an area to improve by typing its number:
-          4. Public speaking  
-          5. Time management  
-          6. Teamwork  
-        </li>
-        <li>
-          I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
-        </li>
-      </condition>
+      For Cybersecurity, focus on:
+      1. Network Security
+      2. Ethical Hacking
+      3. Risk Management
+    </template>
+  </category>
+  
+  <!-- UX Designer -->
+  <category>
+    <pattern>UX_DESIGNER_COURSES</pattern>
+    <template>
+      For UX Design, explore:
+      1. User Research &amp; Personas
+      2. Interaction Design Principles
+      3. Prototyping with Figma
     </template>
   </category>
 
+  <!-- Data Analyst -->
   <category>
-    <pattern>3</pattern>
+    <pattern>DATA_ANALYST_COURSES</pattern>
     <template>
-      <condition name="stage">
-        <li value="strengths_selection">
-          <think>
-            <set name="strengths">data analysis</set>
-            <set name="stage">weaknesses_selection</set>
-          </think>
-          Got it—your strengths are data analysis.  
-          Now please pick an area to improve by typing its number:
-          4. Public speaking  
-          5. Time management  
-          6. Teamwork  
-        </li>
-        <li>
-          I’m not asking for that right now. Please respond with your top strength by typing 1, 2, or 3.
-        </li>
-      </condition>
+      For Data Analysis, you might take:
+      1. Statistics &amp; Probability
+      2. SQL &amp; Database Management
+      3. Data Visualization with Python
     </template>
   </category>
 
-  <!-- Weakness selection: only active when stage is weaknesses_selection -->
+  <!-- Systems Analyst -->
   <category>
-    <pattern>4</pattern>
+    <pattern>SYSTEMS_ANALYST_COURSES</pattern>
     <template>
-      <condition name="stage">
-        <li value="weaknesses_selection">
-          <think><set name="weaknesses">public speaking</set></think>
-          Thanks—you want to improve public speaking. Let me find your best career match…
-          <srai>ASSESS CAREER</srai>
-        </li>
-        <li>
-          Hold on—please choose a strength first by typing 1, 2, or 3.
-        </li>
-      </condition>
+      For Systems Analysis, consider:
+      1. Systems Modeling &amp; UML
+      2. Requirements Engineering
+      3. IT Project Management
     </template>
   </category>
-
-  <category>
-    <pattern>5</pattern>
-    <template>
-      <condition name="stage">
-        <li value="weaknesses_selection">
-          <think><set name="weaknesses">time management</set></think>
-          Perfect—you’d like to work on time management. Checking your fit now…
-          <srai>ASSESS CAREER</srai>
-        </li>
-        <li>
-          Hold on—please choose a strength first by typing 1, 2, or 3.
-        </li>
-      </condition>
-    </template>
-  </category>
-
-  <category>
-    <pattern>6</pattern>
-    <template>
-      <condition name="stage">
-        <li value="weaknesses_selection">
-          <think><set name="weaknesses">teamwork</set></think>
-          Great—you want to improve teamwork. Let’s see which career suits you…
-          <srai>ASSESS CAREER</srai>
-        </li>
-        <li>
-          Hold on—please choose a strength first by typing 1, 2, or 3.
-        </li>
-      </condition>
-    </template>
-  </category>
-
 </aiml>
