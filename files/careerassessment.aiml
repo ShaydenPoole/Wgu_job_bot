@@ -285,7 +285,7 @@
         <think>
             <!-- Initialize with default values -->
             <set name="highest_score">-999</set>
-            <set name="best_career">Data Analyst</set> <!-- Set a default value -->
+            <set name="best_career">undetermined</set>
             
             <!-- Check Data Analyst -->
             <condition name="data_analyst">
@@ -313,6 +313,11 @@
                     <set name="ml_engineer">0</set>
                 </li>
             </condition>
+            
+            <!-- Debug output to check actual values -->
+            <!-- Uncomment if needed for debugging
+            Scores: DA: <get name="data_analyst"/>, FS: <get name="fullstack"/>, UI: <get name="ui_designer"/>, SA: <get name="sys_admin"/>, ML: <get name="ml_engineer"/>
+            -->
             
             <!-- Check Data Analyst score -->
             <set var="compare"><map name="math"><get name="data_analyst"/> &gt; <get name="highest_score"/></map></set>
@@ -351,6 +356,7 @@
             
             <!-- Save result for later use -->
             <set name="assessment_result"><get name="best_career"/></set>
+            <set name="topic">assessment_result</set>
         </think>
         
         <b>Based on your responses, your best career match is: <get name="best_career"/></b>
@@ -376,7 +382,7 @@
             </li>
         </condition>
         
-        You best match with this result! Congratulations. Would you like to know more about this career?
+        Would you like to know more about this career?
         <button>Yes</button>
         <button>No</button>
     </template>
