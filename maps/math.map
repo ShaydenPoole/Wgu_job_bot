@@ -1,0 +1,6 @@
+[
+["x + y", "result of x plus y"],
+["x - y", "result of x minus y"],
+["x > y", "returns 1 if x is greater than y, 0 otherwise"],
+["x < y", "returns 1 if x is less than y, 0 otherwise"]
+]
