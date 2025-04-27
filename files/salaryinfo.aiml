@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- Salary info patterns - make these available globally -->
+<!-- Salary info topic - defining patterns within topic context -->
+<topic name="salary_info">
     <category>
         <pattern>GET SALARY DATA ANALYST</pattern>
         <template>
-            <think><set name="topic">salary_info</set></think>
             <think><set name="selected_career">Data Analyst</set></think>
             Here's salary information for Data Analysts:
             
@@ -20,11 +20,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>GET SALARY FULLSTACK DEVELOPER</pattern>
         <template>
-            <think><set name="topic">salary_info</set></think>
             <think><set name="selected_career">Fullstack Developer</set></think>
             Here's salary information for Fullstack Developers:
             
@@ -40,11 +39,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>GET SALARY UI DESIGNER</pattern>
         <template>
-            <think><set name="topic">salary_info</set></think>
             <think><set name="selected_career">UI Designer</set></think>
             Here's salary information for UI Designers:
             
@@ -60,11 +58,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>GET SALARY SYSTEM ADMINISTRATOR</pattern>
         <template>
-            <think><set name="topic">salary_info</set></think>
             <think><set name="selected_career">System Administrator</set></think>
             Here's salary information for System Administrators:
             
@@ -80,11 +77,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>GET SALARY MACHINE LEARNING ENGINEER</pattern>
         <template>
-            <think><set name="topic">salary_info</set></think>
             <think><set name="selected_career">Machine Learning Engineer</set></think>
             Here's salary information for Machine Learning Engineers:
             
@@ -100,49 +96,44 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
-    <!-- Also add direct patterns without the "GET SALARY" prefix -->
+
+    <!-- Direct access patterns for salary info -->
     <category>
         <pattern>DATA ANALYST</pattern>
-        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
         <template>
             <srai>GET SALARY DATA ANALYST</srai>
         </template>
     </category>
-    
+
     <category>
         <pattern>FULLSTACK DEVELOPER</pattern>
-        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
         <template>
             <srai>GET SALARY FULLSTACK DEVELOPER</srai>
         </template>
     </category>
-    
+
     <category>
         <pattern>UI DESIGNER</pattern>
-        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
         <template>
             <srai>GET SALARY UI DESIGNER</srai>
         </template>
     </category>
-    
+
     <category>
         <pattern>SYSTEM ADMINISTRATOR</pattern>
-        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
         <template>
             <srai>GET SALARY SYSTEM ADMINISTRATOR</srai>
         </template>
     </category>
-    
+
     <category>
         <pattern>MACHINE LEARNING ENGINEER</pattern>
-        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
         <template>
             <srai>GET SALARY MACHINE LEARNING ENGINEER</srai>
         </template>
     </category>
-    
-    <!-- Handle navigation from salary info -->
+
+    <!-- Navigation buttons within topic -->
     <category>
         <pattern>LEARN ABOUT THIS CAREER</pattern>
         <template>
@@ -153,19 +144,35 @@
         </template>
     </category>
     
-    <topic name="salary_info">
-        <!-- Include topic-specific patterns -->
-        <category>
-            <pattern>*</pattern>
-            <template>
-                I didn't understand that. Would you like salary information for one of these careers?
-                <button>Data Analyst</button>
-                <button>Fullstack Developer</button>
-                <button>UI Designer</button>
-                <button>System Administrator</button>
-                <button>Machine Learning Engineer</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-    </topic>
+    <category>
+        <pattern>RETURN TO MAIN MENU</pattern>
+        <template>
+            <think><set name="topic">general</set></think>
+            <srai>MAIN MENU</srai>
+        </template>
+    </category>
+
+    <!-- Catch-all pattern for the topic -->
+    <category>
+        <pattern>*</pattern>
+        <template>
+            I didn't understand that. Would you like salary information for one of these careers?
+            <button>Data Analyst</button>
+            <button>Fullstack Developer</button>
+            <button>UI Designer</button>
+            <button>System Administrator</button>
+            <button>Machine Learning Engineer</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+</topic>
+
+<!-- Global patterns to access salary info and set topic -->
+<category>
+    <pattern>GET SALARY *</pattern>
+    <template>
+        <think><set name="topic">salary_info</set></think>
+        <srai>GET SALARY <star/></srai>
+    </template>
+</category>
 </aiml>

@@ -7,6 +7,7 @@
 <srai>MAIN MENU</srai>
 </template>
 </category>
+
 <category>
     <pattern>HI</pattern>
     <template>
@@ -21,7 +22,7 @@
     </template>
 </category>
 
-<!-- Also add more variations of greetings -->
+<!-- Additional greetings -->
 <category>
     <pattern>HEY</pattern>
     <template>
@@ -43,7 +44,7 @@
     </template>
 </category>
 
-<!-- Main menu pattern - note the simpler pattern -->
+<!-- Main menu pattern -->
 <category>
     <pattern>MAIN MENU</pattern>
     <template>
@@ -69,12 +70,11 @@
     <template>
         <think>
             <set name="topic">career_assessment</set>
-            <!-- Initialize all scores to 0 -->
-            <set name="data_analyst">0</set>
-            <set name="fullstack">0</set>
-            <set name="ui_designer">0</set>
-            <set name="sys_admin">0</set>
-            <set name="ml_engineer">0</set>
+            <!-- Initialize all scores and answers -->
+            <set name="strength_answer">none</set>
+            <set name="weakness_answer">none</set>
+            <set name="interest_answer">none</set>
+            <set name="environment_answer">none</set>
             <set name="assessment_step">1</set>
         </think>
         Lovely, let's get started. I will ask you a few questions to help determine which tech career might be the best fit for you.
@@ -105,6 +105,23 @@
         <button>UI Designer</button>
         <button>System Administrator</button>
         <button>Machine Learning Engineer</button>
+    </template>
+</category>
+
+<!-- Debug categories -->
+<category>
+    <pattern>DEBUG TOPIC</pattern>
+    <template>Current topic: <get name="topic"/></template>
+</category>
+
+<category>
+    <pattern>DEBUG ANSWERS</pattern>
+    <template>
+        Strength: <get name="strength_answer"/>
+        Weakness: <get name="weakness_answer"/>
+        Interest: <get name="interest_answer"/>
+        Environment: <get name="environment_answer"/>
+        Assessment Step: <get name="assessment_step"/>
     </template>
 </category>
 

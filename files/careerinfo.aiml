@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- Career info patterns - make these available globally -->
+<!-- Career info topic - defining patterns within topic context -->
+<topic name="career_info">
     <category>
         <pattern>DATA ANALYST</pattern>
         <template>
-            <think><set name="topic">career_info</set></think>
             <think><set name="selected_career">Data Analyst</set></think>
             Here's information about becoming a Data Analyst:
             
@@ -20,11 +20,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>FULLSTACK DEVELOPER</pattern>
         <template>
-            <think><set name="topic">career_info</set></think>
             <think><set name="selected_career">Fullstack Developer</set></think>
             Here's information about becoming a Fullstack Developer:
             
@@ -40,11 +39,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>UI DESIGNER</pattern>
         <template>
-            <think><set name="topic">career_info</set></think>
             <think><set name="selected_career">UI Designer</set></think>
             Here's information about becoming a UI Designer:
             
@@ -60,11 +58,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>SYSTEM ADMINISTRATOR</pattern>
         <template>
-            <think><set name="topic">career_info</set></think>
             <think><set name="selected_career">System Administrator</set></think>
             Here's information about becoming a System Administrator:
             
@@ -80,11 +77,10 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
+
     <category>
         <pattern>MACHINE LEARNING ENGINEER</pattern>
         <template>
-            <think><set name="topic">career_info</set></think>
             <think><set name="selected_career">Machine Learning Engineer</set></think>
             Here's information about becoming a Machine Learning Engineer:
             
@@ -100,8 +96,8 @@
             <button>Return to Main Menu</button>
         </template>
     </category>
-    
-    <!-- Handle navigation from career info -->
+
+    <!-- Navigation buttons within topic -->
     <category>
         <pattern>GET SALARY INFORMATION</pattern>
         <template>
@@ -112,19 +108,67 @@
         </template>
     </category>
     
-    <topic name="career_info">
-        <!-- Include a catch-all pattern for the topic context -->
-        <category>
-            <pattern>*</pattern>
-            <template>
-                I didn't understand that. Would you like to learn about one of these careers?
-                <button>Data Analyst</button>
-                <button>Fullstack Developer</button>
-                <button>UI Designer</button>
-                <button>System Administrator</button>
-                <button>Machine Learning Engineer</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-    </topic>
+    <category>
+        <pattern>RETURN TO MAIN MENU</pattern>
+        <template>
+            <think><set name="topic">general</set></think>
+            <srai>MAIN MENU</srai>
+        </template>
+    </category>
+
+    <!-- Catch-all pattern for the topic -->
+    <category>
+        <pattern>*</pattern>
+        <template>
+            I didn't understand that. Would you like to learn about one of these careers?
+            <button>Data Analyst</button>
+            <button>Fullstack Developer</button>
+            <button>UI Designer</button>
+            <button>System Administrator</button>
+            <button>Machine Learning Engineer</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+</topic>
+
+<!-- Global patterns to set topic and redirect to topic-specific patterns -->
+<category>
+    <pattern>DATA ANALYST</pattern>
+    <template>
+        <think><set name="topic">career_info</set></think>
+        <srai>DATA ANALYST</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>FULLSTACK DEVELOPER</pattern>
+    <template>
+        <think><set name="topic">career_info</set></think>
+        <srai>FULLSTACK DEVELOPER</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>UI DESIGNER</pattern>
+    <template>
+        <think><set name="topic">career_info</set></think>
+        <srai>UI DESIGNER</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>SYSTEM ADMINISTRATOR</pattern>
+    <template>
+        <think><set name="topic">career_info</set></think>
+        <srai>SYSTEM ADMINISTRATOR</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>MACHINE LEARNING ENGINEER</pattern>
+    <template>
+        <think><set name="topic">career_info</set></think>
+        <srai>MACHINE LEARNING ENGINEER</srai>
+    </template>
+</category>
 </aiml>
