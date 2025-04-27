@@ -1,110 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+    <!-- Salary info patterns - make these available globally -->
+    <category>
+        <pattern>GET SALARY DATA ANALYST</pattern>
+        <template>
+            <think><set name="topic">salary_info</set></think>
+            Here's salary information for Data Analysts:
+            
+            Data Analysts earn competitive salaries that vary by experience, location, and industry. For detailed and up-to-date salary information, please check:
+            
+            <link>
+                <text>View Data Analyst Salary Information</text>
+                <url>https://www.indeed.com/career/data-analyst/salaries</url>
+            </link>
+            
+            Would you like to:
+            <button>Learn About This Career</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GET SALARY FULLSTACK DEVELOPER</pattern>
+        <template>
+            <think><set name="topic">salary_info</set></think>
+            Here's salary information for Fullstack Developers:
+            
+            Fullstack Developers typically earn above-average salaries due to their versatile skillset. For detailed and up-to-date salary information, please check:
+            
+            <link>
+                <text>View Fullstack Developer Salary Information</text>
+                <url>https://www.indeed.com/career/full-stack-developer/salaries?from=top_sb</url>
+            </link>
+            
+            Would you like to:
+            <button>Learn About This Career</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GET SALARY UI DESIGNER</pattern>
+        <template>
+            <think><set name="topic">salary_info</set></think>
+            Here's salary information for UI Designers:
+            
+            UI Designers earn competitive salaries that can vary based on location, experience, and industry. For detailed and up-to-date salary information, please check:
+            
+            <link>
+                <text>View UI Designer Salary Information</text>
+                <url>https://www.indeed.com/career/user-interface-designer/salaries?from=top_sb</url>
+            </link>
+            
+            Would you like to:
+            <button>Learn About This Career</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GET SALARY SYSTEM ADMINISTRATOR</pattern>
+        <template>
+            <think><set name="topic">salary_info</set></think>
+            Here's salary information for System Administrators:
+            
+            System Administrators earn solid salaries that can vary based on location, experience, and the complexity of systems they manage. For detailed and up-to-date salary information, please check:
+            
+            <link>
+                <text>View System Administrator Salary Information</text>
+                <url>https://www.indeed.com/career/systems-administrator/salaries?from=top_sb</url>
+            </link>
+            
+            Would you like to:
+            <button>Learn About This Career</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>GET SALARY MACHINE LEARNING ENGINEER</pattern>
+        <template>
+            <think><set name="topic">salary_info</set></think>
+            Here's salary information for Machine Learning Engineers:
+            
+            Machine Learning Engineers typically earn high salaries due to the specialized and in-demand nature of their skills. For detailed and up-to-date salary information, please check:
+            
+            <link>
+                <text>View Machine Learning Engineer Salary Information</text>
+                <url>https://www.indeed.com/career/machine-learning-engineer/salaries?from=top_sb</url>
+            </link>
+            
+            Would you like to:
+            <button>Learn About This Career</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <!-- Also add direct patterns without the "GET SALARY" prefix -->
+    <category>
+        <pattern>DATA ANALYST</pattern>
+        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
+        <template>
+            <srai>GET SALARY DATA ANALYST</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>FULLSTACK DEVELOPER</pattern>
+        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
+        <template>
+            <srai>GET SALARY FULLSTACK DEVELOPER</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>UI DESIGNER</pattern>
+        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
+        <template>
+            <srai>GET SALARY UI DESIGNER</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SYSTEM ADMINISTRATOR</pattern>
+        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
+        <template>
+            <srai>GET SALARY SYSTEM ADMINISTRATOR</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>MACHINE LEARNING ENGINEER</pattern>
+        <that>WHICH CAREER S SALARY INFORMATION WOULD YOU LIKE TO KNOW ABOUT</that>
+        <template>
+            <srai>GET SALARY MACHINE LEARNING ENGINEER</srai>
+        </template>
+    </category>
+    
+    <!-- Handle navigation from salary info -->
+    <category>
+        <pattern>LEARN ABOUT THIS CAREER</pattern>
+        <template>
+            <think>
+                <set name="topic">career_info</set>
+                <set name="selected_career"><get name="selected_career"/></set>
+            </think>
+            <srai><get name="selected_career"/></srai>
+        </template>
+    </category>
+    
     <topic name="salary_info">
-        <!-- Salary info patterns -->
-        <category>
-            <pattern>DATA ANALYST</pattern>
-            <template>
-                Here's salary information for Data Analysts:
-                
-                Data Analysts earn competitive salaries that vary by experience, location, and industry. For detailed and up-to-date salary information, please check:
-                
-                <link>
-                    <text>View Data Analyst Salary Information</text>
-                    <url>https://www.indeed.com/career/data-analyst/salaries</url>
-                </link>
-                
-                Would you like to:
-                <button>Learn About This Career</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>FULLSTACK DEVELOPER</pattern>
-            <template>
-                Here's salary information for Fullstack Developers:
-                
-                Fullstack Developers typically earn above-average salaries due to their versatile skillset. For detailed and up-to-date salary information, please check:
-                
-                <link>
-                    <text>View Fullstack Developer Salary Information</text>
-                    <url>https://www.indeed.com/career/full-stack-developer/salaries?from=top_sb</url>
-                </link>
-                
-                Would you like to:
-                <button>Learn About This Career</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>UI DESIGNER</pattern>
-            <template>
-                Here's salary information for UI Designers:
-                
-                UI Designers earn competitive salaries that can vary based on location, experience, and industry. For detailed and up-to-date salary information, please check:
-                
-                <link>
-                    <text>View UI Designer Salary Information</text>
-                    <url>https://www.indeed.com/career/user-interface-designer/salaries?from=top_sb</url>
-                </link>
-                
-                Would you like to:
-                <button>Learn About This Career</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>SYSTEM ADMINISTRATOR</pattern>
-            <template>
-                Here's salary information for System Administrators:
-                
-                System Administrators earn solid salaries that can vary based on location, experience, and the complexity of systems they manage. For detailed and up-to-date salary information, please check:
-                
-                <link>
-                    <text>View System Administrator Salary Information</text>
-                    <url>https://www.indeed.com/career/systems-administrator/salaries?from=top_sb</url>
-                </link>
-                
-                Would you like to:
-                <button>Learn About This Career</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>MACHINE LEARNING ENGINEER</pattern>
-            <template>
-                Here's salary information for Machine Learning Engineers:
-                
-                Machine Learning Engineers typically earn high salaries due to the specialized and in-demand nature of their skills. For detailed and up-to-date salary information, please check:
-                
-                <link>
-                    <text>View Machine Learning Engineer Salary Information</text>
-                    <url>https://www.indeed.com/career/machine-learning-engineer/salaries?from=top_sb</url>
-                </link>
-                
-                Would you like to:
-                <button>Learn About This Career</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <!-- Handle navigation from salary info -->
-        <category>
-            <pattern>LEARN ABOUT THIS CAREER</pattern>
-            <template>
-                <think>
-                    <set name="topic">career_info</set>
-                    <set name="selected_career"><get name="selected_career"/></set>
-                </think>
-                <srai><get name="selected_career"/></srai>
-            </template>
-        </category>
-        
-        <!-- Handle unexpected inputs -->
+        <!-- Include topic-specific patterns -->
         <category>
             <pattern>*</pattern>
             <template>
