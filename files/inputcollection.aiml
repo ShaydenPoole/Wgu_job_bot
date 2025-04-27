@@ -1,20 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-  <!-- Numeric mapping for strengths selection -->
+  <!-- Conditional mapping for numeric selection based on stage -->
   <category>
     <pattern>1</pattern>
-    <template><srai>MY STRENGTHS ARE problem-solving</srai></template>
+    <template>
+      <think>
+        <condition name="stage">
+          <li value="strengths_selection"><srai>MY STRENGTHS ARE problem-solving</srai></li>
+          <li value="weaknesses_selection"><srai>MY WEAKNESSES ARE public speaking</srai></li>
+        </condition>
+      </think>
+    </template>
   </category>
   <category>
     <pattern>2</pattern>
-    <template><srai>MY STRENGTHS ARE creativity</srai></template>
+    <template>
+      <think>
+        <condition name="stage">
+          <li value="strengths_selection"><srai>MY STRENGTHS ARE creativity</srai></li>
+          <li value="weaknesses_selection"><srai>MY WEAKNESSES ARE time management</srai></li>
+        </condition>
+      </think>
+    </template>
   </category>
   <category>
     <pattern>3</pattern>
-    <template><srai>MY STRENGTHS ARE data analysis</srai></template>
+    <template>
+      <think>
+        <condition name="stage">
+          <li value="strengths_selection"><srai>MY STRENGTHS ARE data analysis</srai></li>
+          <li value="weaknesses_selection"><srai>MY WEAKNESSES ARE teamwork</srai></li>
+        </condition>
+      </think>
+    </template>
   </category>
 
-  <!-- Strengths input continuation -->
+  <!-- Strengths entry and prompt for weaknesses -->
   <category>
     <pattern>MY STRENGTHS ARE *</pattern>
     <template>
@@ -27,20 +48,6 @@
         <set name="stage">weaknesses_selection</set>
       </think>
     </template>
-  </category>
-
-  <!-- Numeric mapping for weaknesses selection -->
-  <category>
-    <pattern>1</pattern>
-    <template><srai>MY WEAKNESSES ARE public speaking</srai></template>
-  </category>
-  <category>
-    <pattern>2</pattern>
-    <template><srai>MY WEAKNESSES ARE time management</srai></template>
-  </category>
-  <category>
-    <pattern>3</pattern>
-    <template><srai>MY WEAKNESSES ARE teamwork</srai></template>
   </category>
 
   <!-- Weaknesses entry and trigger for assessment -->
