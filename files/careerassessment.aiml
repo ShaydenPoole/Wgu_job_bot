@@ -1,439 +1,540 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- First, let's make sure we can handle general patterns outside of topics -->
-    <category>
-        <pattern>QUESTION STRENGTH</pattern>
-        <template>
-            <think>
-                <set name="data_analyst">0</set>
-                <set name="fullstack">0</set>
-                <set name="ui_designer">0</set>
-                <set name="sys_admin">0</set>
-                <set name="ml_engineer">0</set>
-                <set name="assessment_step">1</set>
-            </think>
-            What is your greatest strength?
-            <button>Analyzing data and finding patterns</button>
-            <button>Building complete applications from front to back</button>
-            <button>Creating visually appealing designs</button>
-            <button>Configuring and maintaining systems</button>
-            <button>Solving complex mathematical problems</button>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>ANALYZING DATA AND FINDING PATTERNS</pattern>
-        <template>
-            <think>
-                <set name="data_analyst"><map name="math"><get name="data_analyst"/> + 2</map></set>
-                <set name="assessment_step">2</set>
-                <set name="topic">career_assessment</set>
-            </think>
-            <srai>QUESTION WEAKNESS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>BUILDING COMPLETE APPLICATIONS FROM FRONT TO BACK</pattern>
-        <template>
-            <think>
-                <set name="fullstack"><map name="math"><get name="fullstack"/> + 2</map></set>
-                <set name="assessment_step">2</set>
-                <set name="topic">career_assessment</set>
-            </think>
-            <srai>QUESTION WEAKNESS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>CREATING VISUALLY APPEALING DESIGNS</pattern>
-        <template>
-            <think>
-                <set name="ui_designer"><map name="math"><get name="ui_designer"/> + 2</map></set>
-                <set name="assessment_step">2</set>
-                <set name="topic">career_assessment</set>
-            </think>
-            <srai>QUESTION WEAKNESS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>CONFIGURING AND MAINTAINING SYSTEMS</pattern>
-        <template>
-            <think>
-                <set name="sys_admin"><map name="math"><get name="sys_admin"/> + 2</map></set>
-                <set name="assessment_step">2</set>
-                <set name="topic">career_assessment</set>
-            </think>
-            <srai>QUESTION WEAKNESS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>SOLVING COMPLEX MATHEMATICAL PROBLEMS</pattern>
-        <template>
-            <think>
-                <set name="ml_engineer"><map name="math"><get name="ml_engineer"/> + 2</map></set>
-                <set name="assessment_step">2</set>
-                <set name="topic">career_assessment</set>
-            </think>
-            <srai>QUESTION WEAKNESS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>QUESTION WEAKNESS</pattern>
-        <template>
-            What is your biggest weakness?
-            <button>Math and statistics</button>
-            <button>Frontend design</button>
-            <button>Backend systems</button>
-            <button>Attention to detail</button>
-            <button>Explaining technical concepts</button>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>MATH AND STATISTICS</pattern>
-        <template>
-            <think>
-                <set name="ml_engineer"><map name="math"><get name="ml_engineer"/> - 1</map></set>
-                <set name="assessment_step">3</set>
-            </think>
-            <srai>QUESTION INTEREST</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>FRONTEND DESIGN</pattern>
-        <template>
-            <think>
-                <set name="ui_designer"><map name="math"><get name="ui_designer"/> - 1</map></set>
-                <set name="assessment_step">3</set>
-            </think>
-            <srai>QUESTION INTEREST</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>BACKEND SYSTEMS</pattern>
-        <template>
-            <think>
-                <set name="sys_admin"><map name="math"><get name="sys_admin"/> - 1</map></set>
-                <set name="assessment_step">3</set>
-            </think>
-            <srai>QUESTION INTEREST</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>ATTENTION TO DETAIL</pattern>
-        <template>
-            <think>
-                <set name="data_analyst"><map name="math"><get name="data_analyst"/> - 1</map></set>
-                <set name="assessment_step">3</set>
-            </think>
-            <srai>QUESTION INTEREST</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>EXPLAINING TECHNICAL CONCEPTS</pattern>
-        <template>
-            <think>
-                <set name="fullstack"><map name="math"><get name="fullstack"/> - 1</map></set>
-                <set name="assessment_step">3</set>
-            </think>
-            <srai>QUESTION INTEREST</srai>
-        </template>
-    </category>
-    
-    <!-- Similar patterns for interest and environment questions -->
-    <category>
-        <pattern>QUESTION INTEREST</pattern>
-        <template>
-            What interests you most?
-            <button>Finding insights in data</button>
-            <button>Creating complete web applications</button>
-            <button>Designing user experiences</button>
-            <button>Managing servers and networks</button>
-            <button>Building AI algorithms</button>
-        </template>
-    </category>
-    
-    <!-- Let's add now the interest response patterns -->
-    <category>
-        <pattern>FINDING INSIGHTS IN DATA</pattern>
-        <template>
-            <think>
-                <set name="data_analyst"><map name="math"><get name="data_analyst"/> + 2</map></set>
-                <set name="assessment_step">4</set>
-            </think>
-            <srai>QUESTION ENVIRONMENT</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>CREATING COMPLETE WEB APPLICATIONS</pattern>
-        <template>
-            <think>
-                <set name="fullstack"><map name="math"><get name="fullstack"/> + 2</map></set>
-                <set name="assessment_step">4</set>
-            </think>
-            <srai>QUESTION ENVIRONMENT</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>DESIGNING USER EXPERIENCES</pattern>
-        <template>
-            <think>
-                <set name="ui_designer"><map name="math"><get name="ui_designer"/> + 2</map></set>
-                <set name="assessment_step">4</set>
-            </think>
-            <srai>QUESTION ENVIRONMENT</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>MANAGING SERVERS AND NETWORKS</pattern>
-        <template>
-            <think>
-                <set name="sys_admin"><map name="math"><get name="sys_admin"/> + 2</map></set>
-                <set name="assessment_step">4</set>
-            </think>
-            <srai>QUESTION ENVIRONMENT</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>BUILDING AI ALGORITHMS</pattern>
-        <template>
-            <think>
-                <set name="ml_engineer"><map name="math"><get name="ml_engineer"/> + 2</map></set>
-                <set name="assessment_step">4</set>
-            </think>
-            <srai>QUESTION ENVIRONMENT</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>QUESTION ENVIRONMENT</pattern>
-        <template>
-            What type of work environment do you prefer?
-            <button>Regular hours with moderate pace</button>
-            <button>Flexible hours with project deadlines</button>
-            <button>Creative environment with team collaboration</button>
-            <button>Structured environment with some on-call</button>
-            <button>Research-focused with challenging problems</button>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>REGULAR HOURS WITH MODERATE PACE</pattern>
-        <template>
-            <think>
-                <set name="data_analyst"><map name="math"><get name="data_analyst"/> + 1</map></set>
-            </think>
-            <srai>CALCULATE RESULTS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>FLEXIBLE HOURS WITH PROJECT DEADLINES</pattern>
-        <template>
-            <think>
-                <set name="fullstack"><map name="math"><get name="fullstack"/> + 1</map></set>
-            </think>
-            <srai>CALCULATE RESULTS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>CREATIVE ENVIRONMENT WITH TEAM COLLABORATION</pattern>
-        <template>
-            <think>
-                <set name="ui_designer"><map name="math"><get name="ui_designer"/> + 1</map></set>
-            </think>
-            <srai>CALCULATE RESULTS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>STRUCTURED ENVIRONMENT WITH SOME ON-CALL</pattern>
-        <template>
-            <think>
-                <set name="sys_admin"><map name="math"><get name="sys_admin"/> + 1</map></set>
-            </think>
-            <srai>CALCULATE RESULTS</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>RESEARCH-FOCUSED WITH CHALLENGING PROBLEMS</pattern>
-        <template>
-            <think>
-                <set name="ml_engineer"><map name="math"><get name="ml_engineer"/> + 1</map></set>
-            </think>
-            <srai>CALCULATE RESULTS</srai>
-        </template>
-    </category>
-    
-    <category>
-    <pattern>CALCULATE RESULTS</pattern>
+<!-- First, let's make sure we can handle general patterns outside of topics -->
+<category>
+<pattern>QUESTION STRENGTH</pattern>
+<template>
+<think>
+<set name="data_analyst">0</set>
+<set name="fullstack">0</set>
+<set name="ui_designer">0</set>
+<set name="sys_admin">0</set>
+<set name="ml_engineer">0</set>
+<set name="assessment_step">1</set>
+</think>
+What is your greatest strength?
+<button>Analyzing data and finding patterns</button>
+<button>Building complete applications from front to back</button>
+<button>Creating visually appealing designs</button>
+<button>Configuring and maintaining systems</button>
+<button>Solving complex mathematical problems</button>
+</template>
+</category>
+
+<!-- Make sure patterns EXACTLY match button text -->
+<category>
+    <pattern>ANALYZING DATA AND FINDING PATTERNS</pattern>
     <template>
         <think>
-            <!-- Initialize with default values -->
-            <set name="best_career">Data Analyst</set>
-            <set name="highest_score"><get name="data_analyst"/></set>
-            
-            <!-- Check Fullstack Developer score -->
-            <condition>
-                <li><map name="math"><get name="fullstack"/> &gt; <get name="highest_score"/></map> = 1
-                    <set name="best_career">Fullstack Developer</set>
-                    <set name="highest_score"><get name="fullstack"/></set>
-                </li>
-            </condition>
-            
-            <!-- Check UI Designer score -->
-            <condition>
-                <li><map name="math"><get name="ui_designer"/> &gt; <get name="highest_score"/></map> = 1
-                    <set name="best_career">UI Designer</set>
-                    <set name="highest_score"><get name="ui_designer"/></set>
-                </li>
-            </condition>
-            
-            <!-- Check System Administrator score -->
-            <condition>
-                <li><map name="math"><get name="sys_admin"/> &gt; <get name="highest_score"/></map> = 1
-                    <set name="best_career">System Administrator</set>
-                    <set name="highest_score"><get name="sys_admin"/></set>
-                </li>
-            </condition>
-            
-            <!-- Check Machine Learning Engineer score -->
-            <condition>
-                <li><map name="math"><get name="ml_engineer"/> &gt; <get name="highest_score"/></map> = 1
-                    <set name="best_career">Machine Learning Engineer</set>
-                    <set name="highest_score"><get name="ml_engineer"/></set>
-                </li>
-            </condition>
-            
-            <!-- Save result for later use -->
-            <set name="assessment_result"><get name="best_career"/></set>
-            <set name="selected_career"><get name="best_career"/></set>
-            <set name="topic">assessment_result</set>
+            <set name="data_analyst">2</set>
+            <set name="assessment_step">2</set>
+            <set name="topic">career_assessment</set>
         </think>
+        <srai>QUESTION WEAKNESS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>BUILDING COMPLETE APPLICATIONS FROM FRONT TO BACK</pattern>
+    <template>
+        <think>
+            <set name="fullstack">2</set>
+            <set name="assessment_step">2</set>
+            <set name="topic">career_assessment</set>
+        </think>
+        <srai>QUESTION WEAKNESS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>CREATING VISUALLY APPEALING DESIGNS</pattern>
+    <template>
+        <think>
+            <set name="ui_designer">2</set>
+            <set name="assessment_step">2</set>
+            <set name="topic">career_assessment</set>
+        </think>
+        <srai>QUESTION WEAKNESS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>CONFIGURING AND MAINTAINING SYSTEMS</pattern>
+    <template>
+        <think>
+            <set name="sys_admin">2</set>
+            <set name="assessment_step">2</set>
+            <set name="topic">career_assessment</set>
+        </think>
+        <srai>QUESTION WEAKNESS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>SOLVING COMPLEX MATHEMATICAL PROBLEMS</pattern>
+    <template>
+        <think>
+            <set name="ml_engineer">2</set>
+            <set name="assessment_step">2</set>
+            <set name="topic">career_assessment</set>
+        </think>
+        <srai>QUESTION WEAKNESS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>QUESTION WEAKNESS</pattern>
+    <template>
+        What is your biggest weakness?
+        <button>Math and statistics</button>
+        <button>Frontend design</button>
+        <button>Backend systems</button>
+        <button>Attention to detail</button>
+        <button>Explaining technical concepts</button>
+    </template>
+</category>
+
+<category>
+    <pattern>MATH AND STATISTICS</pattern>
+    <template>
+        <think>
+            <set name="ml_engineer"><get name="ml_engineer"/> - 1</set>
+            <set name="assessment_step">3</set>
+        </think>
+        <srai>QUESTION INTEREST</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>FRONTEND DESIGN</pattern>
+    <template>
+        <think>
+            <set name="ui_designer"><get name="ui_designer"/> - 1</set>
+            <set name="assessment_step">3</set>
+        </think>
+        <srai>QUESTION INTEREST</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>BACKEND SYSTEMS</pattern>
+    <template>
+        <think>
+            <set name="sys_admin"><get name="sys_admin"/> - 1</set>
+            <set name="assessment_step">3</set>
+        </think>
+        <srai>QUESTION INTEREST</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>ATTENTION TO DETAIL</pattern>
+    <template>
+        <think>
+            <set name="data_analyst"><get name="data_analyst"/> - 1</set>
+            <set name="assessment_step">3</set>
+        </think>
+        <srai>QUESTION INTEREST</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>EXPLAINING TECHNICAL CONCEPTS</pattern>
+    <template>
+        <think>
+            <set name="fullstack"><get name="fullstack"/> - 1</set>
+            <set name="assessment_step">3</set>
+        </think>
+        <srai>QUESTION INTEREST</srai>
+    </template>
+</category>
+
+<!-- Similar patterns for interest and environment questions -->
+<category>
+    <pattern>QUESTION INTEREST</pattern>
+    <template>
+        What interests you most?
+        <button>Finding insights in data</button>
+        <button>Creating complete web applications</button>
+        <button>Designing user experiences</button>
+        <button>Managing servers and networks</button>
+        <button>Building AI algorithms</button>
+    </template>
+</category>
+
+<!-- Let's add now the interest response patterns -->
+<category>
+    <pattern>FINDING INSIGHTS IN DATA</pattern>
+    <template>
+        <think>
+            <set name="data_analyst"><get name="data_analyst"/> + 2</set>
+            <set name="assessment_step">4</set>
+        </think>
+        <srai>QUESTION ENVIRONMENT</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>CREATING COMPLETE WEB APPLICATIONS</pattern>
+    <template>
+        <think>
+            <set name="fullstack"><get name="fullstack"/> + 2</set>
+            <set name="assessment_step">4</set>
+        </think>
+        <srai>QUESTION ENVIRONMENT</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>DESIGNING USER EXPERIENCES</pattern>
+    <template>
+        <think>
+            <set name="ui_designer"><get name="ui_designer"/> + 2</set>
+            <set name="assessment_step">4</set>
+        </think>
+        <srai>QUESTION ENVIRONMENT</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>MANAGING SERVERS AND NETWORKS</pattern>
+    <template>
+        <think>
+            <set name="sys_admin"><get name="sys_admin"/> + 2</set>
+            <set name="assessment_step">4</set>
+        </think>
+        <srai>QUESTION ENVIRONMENT</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>BUILDING AI ALGORITHMS</pattern>
+    <template>
+        <think>
+            <set name="ml_engineer"><get name="ml_engineer"/> + 2</set>
+            <set name="assessment_step">4</set>
+        </think>
+        <srai>QUESTION ENVIRONMENT</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>QUESTION ENVIRONMENT</pattern>
+    <template>
+        What type of work environment do you prefer?
+        <button>Regular hours with moderate pace</button>
+        <button>Flexible hours with project deadlines</button>
+        <button>Creative environment with team collaboration</button>
+        <button>Structured environment with some on-call</button>
+        <button>Research-focused with challenging problems</button>
+    </template>
+</category>
+
+<category>
+    <pattern>REGULAR HOURS WITH MODERATE PACE</pattern>
+    <template>
+        <think>
+            <set name="data_analyst"><get name="data_analyst"/> + 1</set>
+        </think>
+        <srai>CALCULATE RESULTS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>FLEXIBLE HOURS WITH PROJECT DEADLINES</pattern>
+    <template>
+        <think>
+            <set name="fullstack"><get name="fullstack"/> + 1</set>
+        </think>
+        <srai>CALCULATE RESULTS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>CREATIVE ENVIRONMENT WITH TEAM COLLABORATION</pattern>
+    <template>
+        <think>
+            <set name="ui_designer"><get name="ui_designer"/> + 1</set>
+        </think>
+        <srai>CALCULATE RESULTS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>STRUCTURED ENVIRONMENT WITH SOME ON-CALL</pattern>
+    <template>
+        <think>
+            <set name="sys_admin"><get name="sys_admin"/> + 1</set>
+        </think>
+        <srai>CALCULATE RESULTS</srai>
+    </template>
+</category>
+
+<category>
+    <pattern>RESEARCH-FOCUSED WITH CHALLENGING PROBLEMS</pattern>
+    <template>
+        <think>
+            <set name="ml_engineer"><get name="ml_engineer"/> + 1</set>
+        </think>
+        <srai>CALCULATE RESULTS</srai>
+    </template>
+</category>
+
+<category>
+<pattern>CALCULATE RESULTS</pattern>
+<template>
+    <think>
+        <!-- Simplify the calculation using direct numerical comparison -->
+        <set name="data_analyst_score"><get name="data_analyst"/></set>
+        <set name="fullstack_score"><get name="fullstack"/></set>
+        <set name="ui_designer_score"><get name="ui_designer"/></set>
+        <set name="sys_admin_score"><get name="sys_admin"/></set>
+        <set name="ml_engineer_score"><get name="ml_engineer"/></set>
         
-        <b>Based on your responses, your best career match is: <get name="best_career"/></b>
+        <!-- Initialize with Data Analyst -->
+        <set name="best_career">Data Analyst</set>
+        <set name="highest_score"><get name="data_analyst_score"/></set>
         
-        <condition name="best_career">
-            <li value="Data Analyst">
-                Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
-            </li>
-            <li value="Fullstack Developer">
-                Fullstack Developers build complete web applications. You would enjoy working on both frontend and backend technologies.
-            </li>
-            <li value="UI Designer">
-                UI Designers create user interfaces that are both functional and beautiful. You would enjoy making products that users love to interact with.
-            </li>
-            <li value="System Administrator">
-                System Administrators ensure networks and servers run smoothly. You would enjoy solving technical problems and maintaining critical infrastructure.
-            </li>
-            <li value="Machine Learning Engineer">
-                Machine Learning Engineers build AI systems and algorithms. You would enjoy working on cutting-edge technology and complex problems.
+        <!-- Compare with Fullstack Developer -->
+        <condition>
+            <li value="1"><srai>COMPARE SCORE <get name="fullstack_score"/> <get name="highest_score"/></srai></li>
+        </condition>
+        <condition name="comparison_result">
+            <li value="greater">
+                <set name="best_career">Fullstack Developer</set>
+                <set name="highest_score"><get name="fullstack_score"/></set>
             </li>
         </condition>
         
-        Would you like to know more about this career?
-        <button>Yes</button>
-        <button>No</button>
+        <!-- Compare with UI Designer -->
+        <condition>
+            <li value="1"><srai>COMPARE SCORE <get name="ui_designer_score"/> <get name="highest_score"/></srai></li>
+        </condition>
+        <condition name="comparison_result">
+            <li value="greater">
+                <set name="best_career">UI Designer</set>
+                <set name="highest_score"><get name="ui_designer_score"/></set>
+            </li>
+        </condition>
+        
+        <!-- Compare with System Administrator -->
+        <condition>
+            <li value="1"><srai>COMPARE SCORE <get name="sys_admin_score"/> <get name="highest_score"/></srai></li>
+        </condition>
+        <condition name="comparison_result">
+            <li value="greater">
+                <set name="best_career">System Administrator</set>
+                <set name="highest_score"><get name="sys_admin_score"/></set>
+            </li>
+        </condition>
+        
+        <!-- Compare with Machine Learning Engineer -->
+        <condition>
+            <li value="1"><srai>COMPARE SCORE <get name="ml_engineer_score"/> <get name="highest_score"/></srai></li>
+        </condition>
+        <condition name="comparison_result">
+            <li value="greater">
+                <set name="best_career">Machine Learning Engineer</set>
+                <set name="highest_score"><get name="ml_engineer_score"/></set>
+            </li>
+        </condition>
+        
+        <!-- Save result for later use -->
+        <set name="assessment_result"><get name="best_career"/></set>
+        <set name="selected_career"><get name="best_career"/></set>
+        <set name="topic">assessment_result</set>
+    </think>
+    
+    <b>Based on your responses, your best career match is: <get name="best_career"/></b>
+    
+    <condition name="best_career">
+        <li value="Data Analyst">
+            Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
+        </li>
+        <li value="Fullstack Developer">
+            Fullstack Developers build complete web applications. You would enjoy working on both frontend and backend technologies.
+        </li>
+        <li value="UI Designer">
+            UI Designers create user interfaces that are both functional and beautiful. You would enjoy making products that users love to interact with.
+        </li>
+        <li value="System Administrator">
+            System Administrators ensure networks and servers run smoothly. You would enjoy solving technical problems and maintaining critical infrastructure.
+        </li>
+        <li value="Machine Learning Engineer">
+            Machine Learning Engineers build AI systems and algorithms. You would enjoy working on cutting-edge technology and complex problems.
+        </li>
+    </condition>
+    
+    Would you like to know more about this career?
+    <button>Yes</button>
+    <button>No</button>
+</template>
+</category>
+
+<!-- Helper category for score comparison -->
+<category>
+    <pattern>COMPARE SCORE * *</pattern>
+    <template>
+        <think>
+            <set name="score1"><star index="1"/></set>
+            <set name="score2"><star index="2"/></set>
+            
+            <!-- Now do a direct comparison -->
+            <condition>
+                <li><srai>GREATER THAN <get name="score1"/> <get name="score2"/></srai></li>
+            </condition>
+        </think>
     </template>
 </category>
+
+<!-- Simple greater than helper -->
+<category>
+    <pattern>GREATER THAN * *</pattern>
+    <template>
+        <think>
+            <set name="comparison_result">equal</set>
+            <!-- This is a simple implementation -->
+            <condition name="score1">
+                <li value="0">
+                    <condition name="score2">
+                        <li value="0"><set name="comparison_result">equal</set></li>
+                        <li><set name="comparison_result">less</set></li>
+                    </condition>
+                </li>
+                <li value="1">
+                    <condition name="score2">
+                        <li value="0"><set name="comparison_result">greater</set></li>
+                        <li value="1"><set name="comparison_result">equal</set></li>
+                        <li><set name="comparison_result">less</set></li>
+                    </condition>
+                </li>
+                <li value="2">
+                    <condition name="score2">
+                        <li value="0"><set name="comparison_result">greater</set></li>
+                        <li value="1"><set name="comparison_result">greater</set></li>
+                        <li value="2"><set name="comparison_result">equal</set></li>
+                        <li><set name="comparison_result">less</set></li>
+                    </condition>
+                </li>
+                <li value="3">
+                    <condition name="score2">
+                        <li value="0"><set name="comparison_result">greater</set></li>
+                        <li value="1"><set name="comparison_result">greater</set></li>
+                        <li value="2"><set name="comparison_result">greater</set></li>
+                        <li value="3"><set name="comparison_result">equal</set></li>
+                        <li><set name="comparison_result">less</set></li>
+                    </condition>
+                </li>
+                <li value="4">
+                    <condition name="score2">
+                        <li value="0"><set name="comparison_result">greater</set></li>
+                        <li value="1"><set name="comparison_result">greater</set></li>
+                        <li value="2"><set name="comparison_result">greater</set></li>
+                        <li value="3"><set name="comparison_result">greater</set></li>
+                        <li value="4"><set name="comparison_result">equal</set></li>
+                        <li><set name="comparison_result">less</set></li>
+                    </condition>
+                </li>
+                <li value="5">
+                    <condition name="score2">
+                        <li value="0"><set name="comparison_result">greater</set></li>
+                        <li value="1"><set name="comparison_result">greater</set></li>
+                        <li value="2"><set name="comparison_result">greater</set></li>
+                        <li value="3"><set name="comparison_result">greater</set></li>
+                        <li value="4"><set name="comparison_result">greater</set></li>
+                        <li value="5"><set name="comparison_result">equal</set></li>
+                        <li><set name="comparison_result">less</set></li>
+                    </condition>
+                </li>
+            </condition>
+        </think>
+        <get name="comparison_result"/>
+    </template>
+</category>
+
+<!-- Topic for handling assessment result responses -->
+<topic name="assessment_result">
+    <category>
+        <pattern>YES</pattern>
+        <template>
+            <think>
+                <set name="topic">career_info</set>
+            </think>
+            <srai><get name="assessment_result"/></srai>
+        </template>
+    </category>
     
-    <!-- Topic for handling assessment result responses -->
-    <topic name="assessment_result">
-        <category>
-            <pattern>YES</pattern>
-            <template>
-                <think>
-                    <set name="topic">career_info</set>
-                </think>
-                <srai><get name="assessment_result"/></srai>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>NO</pattern>
-            <template>
-                Thank you for joining this session! See you next time.
-                <think><set name="topic">general</set></think>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>*</pattern>
-            <template>
-                I didn't understand that. Would you like to know more about your career match?
-                <button>Yes</button>
-                <button>No</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-    </topic>
+    <category>
+        <pattern>NO</pattern>
+        <template>
+            Thank you for joining this session! See you next time.
+            <think><set name="topic">general</set></think>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
     
-    <!-- Handle unexpected inputs during assessment -->
     <category>
         <pattern>*</pattern>
         <template>
-            <condition name="assessment_step">
-                <li value="1"><srai>QUESTION STRENGTH</srai></li>
-                <li value="2"><srai>QUESTION WEAKNESS</srai></li>
-                <li value="3"><srai>QUESTION INTEREST</srai></li>
-                <li value="4"><srai>QUESTION ENVIRONMENT</srai></li>
-                <li>
-                    I didn't understand that. Would you like to:
-                    <button>Return to Main Menu</button>
-                    <button>Start Assessment Again</button>
-                </li>
-            </condition>
+            I didn't understand that. Would you like to know more about your career match?
+            <button>Yes</button>
+            <button>No</button>
+            <button>Return to Main Menu</button>
         </template>
     </category>
+</topic>
+
+<!-- Handle unexpected inputs during assessment -->
+<category>
+    <pattern>*</pattern>
+    <template>
+        <condition name="assessment_step">
+            <li value="1"><srai>QUESTION STRENGTH</srai></li>
+            <li value="2"><srai>QUESTION WEAKNESS</srai></li>
+            <li value="3"><srai>QUESTION INTEREST</srai></li>
+            <li value="4"><srai>QUESTION ENVIRONMENT</srai></li>
+            <li>
+                I didn't understand that. Would you like to:
+                <button>Return to Main Menu</button>
+                <button>Start Assessment Again</button>
+            </li>
+        </condition>
+    </template>
+</category>
+
+<category>
+    <pattern>START ASSESSMENT AGAIN</pattern>
+    <template><srai>QUESTION STRENGTH</srai></template>
+</category>
+
+<topic name="career_assessment">
+    <!-- Important: Include the same patterns here but as topic-specific -->
+    <!-- This is necessary for Pandorabots to properly handle topic context -->
     
+    <!-- Just include a catch-all pattern for now -->
     <category>
-        <pattern>START ASSESSMENT AGAIN</pattern>
-        <template><srai>QUESTION STRENGTH</srai></template>
-    </category>
-    
-    <topic name="career_assessment">
-        <!-- Important: Include the same patterns here but as topic-specific -->
-        <!-- This is necessary for Pandorabots to properly handle topic context -->
-        
-        <!-- Just include a catch-all pattern for now -->
-        <category>
-            <pattern>*</pattern>
-            <template>
-                <srai><star/></srai>
-            </template>
-        </category>
-    </topic>
-    
-    <!-- Debug category for troubleshooting -->
-    <category>
-        <pattern>DEBUG SCORES</pattern>
+        <pattern>*</pattern>
         <template>
-            Current scores:
-            Data Analyst: <get name="data_analyst"/>
-            Fullstack Developer: <get name="fullstack"/>
-            UI Designer: <get name="ui_designer"/>
-            System Administrator: <get name="sys_admin"/>
-            Machine Learning Engineer: <get name="ml_engineer"/>
-            Best Career: <get name="best_career"/>
-            Selected Career: <get name="selected_career"/>
-            Assessment Result: <get name="assessment_result"/>
-            Current Topic: <get name="topic"/>
-            Assessment Step: <get name="assessment_step"/>
+            <srai><star/></srai>
         </template>
     </category>
+</topic>
+
+<!-- Debug category for troubleshooting -->
+<category>
+    <pattern>DEBUG SCORES</pattern>
+    <template>
+        Current scores:
+        Data Analyst: <get name="data_analyst"/>
+        Fullstack Developer: <get name="fullstack"/>
+        UI Designer: <get name="ui_designer"/>
+        System Administrator: <get name="sys_admin"/>
+        Machine Learning Engineer: <get name="ml_engineer"/>
+        Best Career: <get name="best_career"/>
+        Selected Career: <get name="selected_career"/>
+        Assessment Result: <get name="assessment_result"/>
+        Current Topic: <get name="topic"/>
+        Assessment Step: <get name="assessment_step"/>
+    </template>
+</category>
 </aiml>
