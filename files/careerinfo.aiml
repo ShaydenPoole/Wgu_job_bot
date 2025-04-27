@@ -1,110 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+    <!-- Career info patterns - make these available globally -->
+    <category>
+        <pattern>DATA ANALYST</pattern>
+        <template>
+            <think><set name="topic">career_info</set></think>
+            Here's information about becoming a Data Analyst:
+            
+            Data Analysts examine large datasets to identify trends, develop charts, and create visual presentations to help businesses make better decisions. They use tools like SQL, Python, R, and Excel to manipulate data and create visualizations.
+            
+            <link>
+                <text>Learn more about Data Analyst careers</text>
+                <url>https://www.indeed.com/career-advice/finding-a-job/data-analyst-job-description</url>
+            </link>
+            
+            Would you like to:
+            <button>Get Salary Information</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>FULLSTACK DEVELOPER</pattern>
+        <template>
+            <think><set name="topic">career_info</set></think>
+            Here's information about becoming a Fullstack Developer:
+            
+            Fullstack Developers are proficient in both frontend and backend development. They can work on all aspects of a web application, from user interfaces to server architecture and databases. They typically know HTML, CSS, JavaScript, and at least one backend language like Python, Java, or Ruby.
+            
+            <link>
+                <text>Learn more about Fullstack Developer careers</text>
+                <url>https://www.indeed.com/hire/job-description/full-stack-developer</url>
+            </link>
+            
+            Would you like to:
+            <button>Get Salary Information</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>UI DESIGNER</pattern>
+        <template>
+            <think><set name="topic">career_info</set></think>
+            Here's information about becoming a UI Designer:
+            
+            UI Designers create intuitive, aesthetically pleasing interfaces for digital products. They focus on the look and feel of applications, ensuring they're both visually appealing and easy to use. They often work with UX designers and use tools like Figma, Adobe XD, and Sketch.
+            
+            <link>
+                <text>Learn more about UI Designer careers</text>
+                <url>https://uk.indeed.com/career-advice/finding-a-job/what-does-ui-designer-do</url>
+            </link>
+            
+            Would you like to:
+            <button>Get Salary Information</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>SYSTEM ADMINISTRATOR</pattern>
+        <template>
+            <think><set name="topic">career_info</set></think>
+            Here's information about becoming a System Administrator:
+            
+            System Administrators are responsible for maintaining, configuring, and ensuring the reliable operation of computer systems and networks. They handle installation, security management, troubleshooting, and routine maintenance of servers and infrastructure.
+            
+            <link>
+                <text>Learn more about System Administrator careers</text>
+                <url>https://www.indeed.com/hire/job-description/system-administrator</url>
+            </link>
+            
+            Would you like to:
+            <button>Get Salary Information</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>MACHINE LEARNING ENGINEER</pattern>
+        <template>
+            <think><set name="topic">career_info</set></think>
+            Here's information about becoming a Machine Learning Engineer:
+            
+            Machine Learning Engineers design and implement AI systems that can learn from and make decisions based on data. They create algorithms, build models, and deploy machine learning solutions. This role requires strong programming skills, mathematical knowledge, and data analysis abilities.
+            
+            <link>
+                <text>Learn more about Machine Learning Engineer careers</text>
+                <url>https://www.indeed.com/career-advice/career-development/machine-learning-engineer</url>
+            </link>
+            
+            Would you like to:
+            <button>Get Salary Information</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <!-- Handle navigation from career info -->
+    <category>
+        <pattern>GET SALARY INFORMATION</pattern>
+        <template>
+            <think>
+                <set name="topic">salary_info</set>
+                <set name="selected_career"><get name="selected_career"/></set>
+            </think>
+            <srai><get name="selected_career"/></srai>
+        </template>
+    </category>
+    
     <topic name="career_info">
-        <!-- Career info patterns -->
-        <category>
-            <pattern>DATA ANALYST</pattern>
-            <template>
-                Here's information about becoming a Data Analyst:
-                
-                Data Analysts examine large datasets to identify trends, develop charts, and create visual presentations to help businesses make better decisions. They use tools like SQL, Python, R, and Excel to manipulate data and create visualizations.
-                
-                <link>
-                    <text>Learn more about Data Analyst careers</text>
-                    <url>https://www.indeed.com/career-advice/finding-a-job/data-analyst-job-description</url>
-                </link>
-                
-                Would you like to:
-                <button>Get Salary Information</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>FULLSTACK DEVELOPER</pattern>
-            <template>
-                Here's information about becoming a Fullstack Developer:
-                
-                Fullstack Developers are proficient in both frontend and backend development. They can work on all aspects of a web application, from user interfaces to server architecture and databases. They typically know HTML, CSS, JavaScript, and at least one backend language like Python, Java, or Ruby.
-                
-                <link>
-                    <text>Learn more about Fullstack Developer careers</text>
-                    <url>https://www.indeed.com/hire/job-description/full-stack-developer</url>
-                </link>
-                
-                Would you like to:
-                <button>Get Salary Information</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>UI DESIGNER</pattern>
-            <template>
-                Here's information about becoming a UI Designer:
-                
-                UI Designers create intuitive, aesthetically pleasing interfaces for digital products. They focus on the look and feel of applications, ensuring they're both visually appealing and easy to use. They often work with UX designers and use tools like Figma, Adobe XD, and Sketch.
-                
-                <link>
-                    <text>Learn more about UI Designer careers</text>
-                    <url>https://uk.indeed.com/career-advice/finding-a-job/what-does-ui-designer-do</url>
-                </link>
-                
-                Would you like to:
-                <button>Get Salary Information</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>SYSTEM ADMINISTRATOR</pattern>
-            <template>
-                Here's information about becoming a System Administrator:
-                
-                System Administrators are responsible for maintaining, configuring, and ensuring the reliable operation of computer systems and networks. They handle installation, security management, troubleshooting, and routine maintenance of servers and infrastructure.
-                
-                <link>
-                    <text>Learn more about System Administrator careers</text>
-                    <url>https://www.indeed.com/hire/job-description/system-administrator</url>
-                </link>
-                
-                Would you like to:
-                <button>Get Salary Information</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <category>
-            <pattern>MACHINE LEARNING ENGINEER</pattern>
-            <template>
-                Here's information about becoming a Machine Learning Engineer:
-                
-                Machine Learning Engineers design and implement AI systems that can learn from and make decisions based on data. They create algorithms, build models, and deploy machine learning solutions. This role requires strong programming skills, mathematical knowledge, and data analysis abilities.
-                
-                <link>
-                    <text>Learn more about Machine Learning Engineer careers</text>
-                    <url>https://www.indeed.com/career-advice/career-development/machine-learning-engineer</url>
-                </link>
-                
-                Would you like to:
-                <button>Get Salary Information</button>
-                <button>Return to Main Menu</button>
-            </template>
-        </category>
-        
-        <!-- Handle navigation from career info -->
-        <category>
-            <pattern>GET SALARY INFORMATION</pattern>
-            <template>
-                <think>
-                    <set name="topic">salary_info</set>
-                    <set name="selected_career"><get name="selected_career"/></set>
-                </think>
-                <srai><get name="selected_career"/></srai>
-            </template>
-        </category>
-        
-        <!-- Handle unexpected inputs -->
+        <!-- Include a catch-all pattern for the topic context -->
         <category>
             <pattern>*</pattern>
             <template>
