@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+  <!-- Strengths input with free-text entry -->
   <category>
     <pattern>MY STRENGTHS ARE *</pattern>
     <template>
-      Got it—your strengths are <star/>. Now, what areas would you like to improve (e.g., public speaking, time management)?
+      Got it—your strengths are <star/>. Now, please pick an area to improve from the same list below by typing its number:
+      1. Public speaking
+      2. Time management
+      3. Teamwork
       <think>
         <set name="strengths"><star/></set>
-        <set name="stage">weaknesses</set>
+        <set name="stage">weaknesses_selection</set>
       </think>
     </template>
   </category>
+
+  <!-- Numeric mapping for the chosen weakness -->
+  <category>
+    <pattern>1</pattern>
+    <template><srai>MY WEAKNESSES ARE public speaking</srai></template>
+  </category>
+  <category>
+    <pattern>2</pattern>
+    <template><srai>MY WEAKNESSES ARE time management</srai></template>
+  </category>
+  <category>
+    <pattern>3</pattern>
+    <template><srai>MY WEAKNESSES ARE teamwork</srai></template>
+  </category>
+
+  <!-- Weaknesses entry and trigger for assessment -->
   <category>
     <pattern>MY WEAKNESSES ARE *</pattern>
     <template>
