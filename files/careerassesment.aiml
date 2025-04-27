@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
+  <!-- Combine strength and weakness to determine career -->
   <category>
     <pattern>ASSESS CAREER</pattern>
     <template>
       <think>
         <condition name="strengths">
-          <li value="problem-solving"><set name="career">Software Engineer</set></li>
-          <li value="data analysis"><set name="career">Data Analyst</set></li>
-          <li value="security"><set name="career">Cybersecurity Specialist</set></li>
-          <li value="creativity"><set name="career">UX Designer</set></li>
-          <li value="systems-thinking"><set name="career">Systems Analyst</set></li>
-          <!-- default if nothing matches -->
-          <li><set name="career">Software Engineer</set></li>
+          <li value="problem-solving">
+            <condition name="weaknesses">
+              <li value="public speaking"><set name="career">CYBERSECURITY_SPECIALIST</set></li>
+              <li value="time management"><set name="career">SOFTWARE_ENGINEER</set></li>
+              <li value="teamwork"><set name="career">SYSTEMS_ANALYST</set></li>
+            </condition>
+          </li>
+          <li value="creativity">
+            <condition name="weaknesses">
+              <li value="public speaking"><set name="career">UX_DESIGNER</set></li>
+              <li value="time management"><set name="career">DATA_ANALYST</set></li>
+              <li value="teamwork"><set name="career">UX_DESIGNER</set></li>
+            </condition>
+          </li>
+          <li value="data analysis">
+            <condition name="weaknesses">
+              <li value="public speaking"><set name="career">DATA_ANALYST</set></li>
+              <li value="time management"><set name="career">SOFTWARE_ENGINEER</set></li>
+              <li value="teamwork"><set name="career">DATA_ANALYST</set></li>
+            </condition>
+          </li>
         </condition>
       </think>
-      Based on your strengths, <get name="career"/> is a great fit for you.
+      Based on your strengths and improvement area, <get name="career"/> is the ideal career for you.
       <srai><get name="career"/>_COURSES</srai>
     </template>
   </category>

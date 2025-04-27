@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+
+  <category>
+    <pattern>SOFTWARE_ENGINEER_COURSES</pattern>
+    <template>
+      To prepare for Software Engineering, consider:
+      1. Advanced Python Programming
+      2. Algorithms &amp; Data Structures
+      3. Cloud Computing Fundamentals
+    </template>
+  </category>
+
+  <category>
+    <pattern>CYBERSECURITY_SPECIALIST_COURSES</pattern>
+    <template>
+      For Cybersecurity Specialist, focus on:
+      1. Network Security Foundations
+      2. Ethical Hacking &amp; Penetration Testing
+      3. Security Policies &amp; Risk Management
+    </template>
+  </category>
+
+  <category>
+    <pattern>UX_DESIGNER_COURSES</pattern>
+    <template>
+      To excel in UX Design, try:
+      1. User Research &amp; Personas
+      2. Interaction Design Principles
+      3. Prototyping with Figma
+    </template>
+  </category>
+
+  <category>
+    <pattern>DATA_ANALYST_COURSES</pattern>
+    <template>
+      For Data Analysis, you might take:
+      1. Statistics &amp; Probability
+      2. SQL &amp; Database Management
+      3. Data Visualization with Python
+    </template>
+  </category>
+
+  <category>
+    <pattern>SYSTEMS_ANALYST_COURSES</pattern>
+    <template>
+      For Systems Analysis, consider:
+      1. Systems Modeling &amp; UML
+      2. Requirements Engineering
+      3. IT Project Management
+    </template>
+  </category>
+
 </aiml>
