@@ -1,139 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-<!-- Welcome patterns - these need to be more specific -->
-<category>
-<pattern>HELLO</pattern>
-<template>
-<srai>MAIN MENU</srai>
-</template>
-</category>
 
-<category>
-    <pattern>HI</pattern>
-    <template>
-        <srai>MAIN MENU</srai>
-    </template>
-</category>
+  <!-- Greetings -->
+  <category>
+    <pattern>HELLO</pattern>
+    <template><srai>MAIN MENU</srai></template>
+  </category>
+  <category><pattern>HI</pattern><template><srai>MAIN MENU</srai></template></category>
+  <category><pattern>HEY</pattern><template><srai>MAIN MENU</srai></template></category>
 
-<category>
-    <pattern>START</pattern>
-    <template>
-        <srai>MAIN MENU</srai>
-    </template>
-</category>
-
-<!-- Additional greetings -->
-<category>
-    <pattern>HEY</pattern>
-    <template>
-        <srai>MAIN MENU</srai>
-    </template>
-</category>
-
-<category>
-    <pattern>HELLO *</pattern>
-    <template>
-        <srai>MAIN MENU</srai>
-    </template>
-</category>
-
-<category>
-    <pattern>HI *</pattern>
-    <template>
-        <srai>MAIN MENU</srai>
-    </template>
-</category>
-
-<!-- Main menu pattern -->
-<category>
+  <!-- Main menu -->
+  <category>
     <pattern>MAIN MENU</pattern>
     <template>
-        <think><set name="topic">general</set></think>
-        Hello! Welcome to the computer science graduate student career services chatbot. I know graduating can be scary, hopefully I can help guide you in the right direction. How can I help you today?
-        <button>Career Assessment</button>
-        <button>Learn About Careers</button>
-        <button>Salary Information</button>
+      <think><set name="topic">general</set></think>
+      Hello! Welcome to the computer science graduate student career services chatbot.  
+      I know graduating can be scary, but I’m here to help guide you. What would you like to do?
+      <button>Career Assessment</button>
+      <button>Learn About Careers</button>
+      <button>Salary Information</button>
     </template>
-</category>
+  </category>
 
-<category>
-    <pattern>RETURN TO MAIN MENU</pattern>
-    <template>
-        <think><set name="topic">general</set></think>
-        <srai>MAIN MENU</srai>
-    </template>
-</category>
-
-<!-- Menu routing -->
-<category>
+  <!-- Menu options -->
+  <category>
     <pattern>CAREER ASSESSMENT</pattern>
     <template>
-        <think>
-            <set name="topic">career_assessment</set>
-            <!-- Initialize all scores and answers -->
-            <set name="strength_answer">none</set>
-            <set name="weakness_answer">none</set>
-            <set name="interest_answer">none</set>
-            <set name="environment_answer">none</set>
-            <set name="assessment_step">1</set>
-        </think>
-        Lovely, let's get started. I will ask you a few questions to help determine which tech career might be the best fit for you.
-        <srai>QUESTION STRENGTH</srai>
+      <think><set name="topic">career_assessment</set></think>
+      Lovely—let’s get started. I’ll ask you 3 quick questions to find your best-fit tech career.
+      <srai>CAREER ASSESSMENT</srai>
     </template>
-</category>
+  </category>
 
-<category>
+  <category>
     <pattern>LEARN ABOUT CAREERS</pattern>
     <template>
-        <think><set name="topic">career_info</set></think>
-        Which of these careers would you like to learn more about?
-        <button>Data Analyst</button>
-        <button>Fullstack Developer</button>
-        <button>UI Designer</button>
-        <button>System Administrator</button>
-        <button>Machine Learning Engineer</button>
+      <think><set name="topic">career_info</set></think>
+      Which career would you like to learn more about?
+      <button>Data Analyst</button>
+      <button>Fullstack Developer</button>
+      <button>UI Designer</button>
+      <button>System Administrator</button>
+      <button>Machine Learning Engineer</button>
     </template>
-</category>
+  </category>
 
-<category>
+  <category>
     <pattern>SALARY INFORMATION</pattern>
     <template>
-        <think><set name="topic">salary_info</set></think>
-        Which career's salary information would you like to know about?
-        <button>Data Analyst</button>
-        <button>Fullstack Developer</button>
-        <button>UI Designer</button>
-        <button>System Administrator</button>
-        <button>Machine Learning Engineer</button>
+      <think><set name="topic">salary_info</set></think>
+      Which career’s salary information would you like to see?
+      <button>Data Analyst</button>
+      <button>Fullstack Developer</button>
+      <button>UI Designer</button>
+      <button>System Administrator</button>
+      <button>Machine Learning Engineer</button>
     </template>
-</category>
+  </category>
 
-<!-- Debug categories -->
-<category>
-    <pattern>DEBUG TOPIC</pattern>
-    <template>Current topic: <get name="topic"/></template>
-</category>
-
-<category>
-    <pattern>DEBUG ANSWERS</pattern>
-    <template>
-        Strength: <get name="strength_answer"/>
-        Weakness: <get name="weakness_answer"/>
-        Interest: <get name="interest_answer"/>
-        Environment: <get name="environment_answer"/>
-        Assessment Step: <get name="assessment_step"/>
-    </template>
-</category>
-
-<!-- Fallback for unknown inputs -->
-<category>
+  <!-- Fallback -->
+  <category>
     <pattern>*</pattern>
     <template>
-        I'm sorry, I didn't understand that. Would you like to:
-        <button>Return to Main Menu</button>
-        <button>Career Assessment</button>
-        <button>Learn About Careers</button>
-        <button>Salary Information</button>
+      I’m sorry, I didn’t understand that. Would you like to:
+      <button>Return to Main Menu</button>
+      <button>Career Assessment</button>
+      <button>Learn About Careers</button>
+      <button>Salary Information</button>
     </template>
-</category>
+  </category>
+
 </aiml>

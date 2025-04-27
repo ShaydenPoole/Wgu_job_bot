@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- Common phrases and navigation -->
-    <category>
-        <pattern>THANKS</pattern>
-        <template>You're welcome! Is there anything else I can help you with?
-            <button>Return to Main Menu</button>
-            <button>No, I'm Done</button>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>THANK YOU</pattern>
-        <template><srai>THANKS</srai></template>
-    </category>
-    
-    <category>
-        <pattern>NO I'M DONE</pattern>
-        <template>Thank you for using the CS Career Services chatbot. Good luck with your career journey!</template>
-    </category>
-    
-    <!-- Add more helpful patterns -->
-    <category>
-        <pattern>HELP</pattern>
-        <template>
-            I can help you with:
-            - Taking a career assessment to find your best fit
-            - Providing information about tech careers
-            - Sharing salary information for different tech roles
-            
-            What would you like to do?
-            <button>Career Assessment</button>
-            <button>Learn About Careers</button>
-            <button>Salary Information</button>
-            <button>Return to Main Menu</button>
-        </template>
-    </category>
-    
-    <!-- Handle basic conversational inputs -->
-    <category>
-        <pattern>HOW ARE YOU</pattern>
-        <template>
-            I'm functioning well and ready to help with your career questions! What would you like to know today?
-            <button>Return to Main Menu</button>
-        </template>
-    </category>
+
+  <category><pattern>THANKS</pattern>
+    <template>
+      You’re welcome! Anything else I can do?
+      <button>Return to Main Menu</button>
+      <button>No, I’m Done</button>
+    </template>
+  </category>
+
+  <category><pattern>THANK YOU</pattern><template><srai>THANKS</srai></template></category>
+
+  <category><pattern>NO I'M DONE</pattern>
+    <template>
+      Thank you for using the CS Career Services chatbot. Good luck on your journey!
+    </template>
+  </category>
+
+  <category><pattern>HELP</pattern>
+    <template>
+      I can help you with:
+      - A career assessment
+      - Learning about tech careers
+      - Salary information  
+      What would you like to do?
+      <button>Career Assessment</button>
+      <button>Learn About Careers</button>
+      <button>Salary Information</button>
+      <button>Return to Main Menu</button>
+    </template>
+  </category>
+
+  <category><pattern>HOW ARE YOU</pattern>
+    <template>
+      I’m doing great—ready to help!  
+      <button>Return to Main Menu</button>
+    </template>
+  </category>
+
 </aiml>
