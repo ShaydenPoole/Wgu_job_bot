@@ -1,37 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
 
-  <category><pattern>THANKS</pattern>
+  <category>
+    <pattern>THANKS</pattern>
     <template>
-      You’re welcome! Anything else I can do?
+      You’re welcome!  
       <button>Return to Main Menu</button>
       <button>No, I’m Done</button>
     </template>
   </category>
 
-  <category><pattern>THANK YOU</pattern><template><srai>THANKS</srai></template></category>
+  <category>
+    <pattern>THANK YOU</pattern>
+    <template><srai>THANKS</srai></template>
+  </category>
 
-  <category><pattern>NO I'M DONE</pattern>
+  <category>
+    <pattern>NO I'M DONE</pattern>
     <template>
-      Thank you for using the CS Career Services chatbot. Good luck on your journey!
+      Thank you for using the chatbot. Good luck!
     </template>
   </category>
 
-  <category><pattern>HELP</pattern>
+  <category>
+    <pattern>HELP</pattern>
     <template>
-      I can help you with:
-      - A career assessment
-      - Learning about tech careers
-      - Salary information  
-      What would you like to do?
-      <button>Career Assessment</button>
-      <button>Learn About Careers</button>
-      <button>Salary Information</button>
+      I can help with:
+      - Career Assessment  
+      - Career Information  
+      - Salary Information  
       <button>Return to Main Menu</button>
     </template>
   </category>
 
-  <category><pattern>HOW ARE YOU</pattern>
+  <category>
+    <pattern>HOW ARE YOU</pattern>
     <template>
       I’m doing great—ready to help!  
       <button>Return to Main Menu</button>

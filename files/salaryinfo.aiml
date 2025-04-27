@@ -3,99 +3,91 @@
 
   <topic name="salary_info">
 
-    <category><pattern>DATA ANALYST</pattern>
+    <category>
+      <pattern>DATA ANALYST</pattern>
       <template>
-        Here's salary information for **Data Analysts**:
-
-        Data Analysts earn competitive salaries that vary by experience, location, and industry.  
-        For details, see:
+        Data Analyst salaries vary by experience and region.  
         <link>
           <text>View Data Analyst Salaries</text>
           <url>https://www.indeed.com/career/data-analyst/salaries</url>
         </link>
-
         <button>Learn About This Career</button>
         <button>Return to Main Menu</button>
       </template>
     </category>
 
-    <category><pattern>FULLSTACK DEVELOPER</pattern>
+    <category>
+      <pattern>FULLSTACK DEVELOPER</pattern>
       <template>
-        Here's salary information for **Fullstack Developers**:
-
-        They typically earn above-average salaries.  
+        Fullstack Developer salaries are above average due to full-stack expertise.  
         <link>
-          <text>View Fullstack Developer Salaries</text>
+          <text>View Fullstack Dev Salaries</text>
           <url>https://www.indeed.com/career/full-stack-developer/salaries?from=top_sb</url>
         </link>
-
         <button>Learn About This Career</button>
         <button>Return to Main Menu</button>
       </template>
     </category>
 
-    <category><pattern>UI DESIGNER</pattern>
+    <category>
+      <pattern>UI DESIGNER</pattern>
       <template>
-        Here's salary information for **UI Designers**:
-
-        Salaries vary by location and experience.  
+        UI Designer salaries depend on experience and location.  
         <link>
           <text>View UI Designer Salaries</text>
           <url>https://www.indeed.com/career/user-interface-designer/salaries?from=top_sb</url>
         </link>
-
         <button>Learn About This Career</button>
         <button>Return to Main Menu</button>
       </template>
     </category>
 
-    <category><pattern>SYSTEM ADMINISTRATOR</pattern>
+    <category>
+      <pattern>SYSTEM ADMINISTRATOR</pattern>
       <template>
-        Here's salary information for **System Administrators**:
-
-        Salaries vary by experience and environment.  
+        SysAdmin salaries vary by environment and seniority.  
         <link>
-          <text>View System Administrator Salaries</text>
+          <text>View SysAdmin Salaries</text>
           <url>https://www.indeed.com/career/systems-administrator/salaries?from=top_sb</url>
         </link>
-
         <button>Learn About This Career</button>
         <button>Return to Main Menu</button>
       </template>
     </category>
 
-    <category><pattern>MACHINE LEARNING ENGINEER</pattern>
+    <category>
+      <pattern>MACHINE LEARNING ENGINEER</pattern>
       <template>
-        Here's salary information for **Machine Learning Engineers**:
-
-        ML Engineers typically earn high salaries due to in-demand skills.  
+        ML Engineer salaries rank high among tech roles.  
         <link>
           <text>View ML Engineer Salaries</text>
           <url>https://www.indeed.com/career/machine-learning-engineer/salaries?from=top_sb</url>
         </link>
-
         <button>Learn About This Career</button>
         <button>Return to Main Menu</button>
       </template>
     </category>
 
-    <category><pattern>LEARN ABOUT THIS CAREER</pattern>
+    <category>
+      <pattern>LEARN ABOUT THIS CAREER</pattern>
       <template>
         <think><set name="topic">career_info</set></think>
         <srai><get name="selected_career"/></srai>
       </template>
     </category>
 
-    <category><pattern>RETURN TO MAIN MENU</pattern>
+    <category>
+      <pattern>RETURN TO MAIN MENU</pattern>
       <template>
         <think><set name="topic">general</set></think>
         <srai>MAIN MENU</srai>
       </template>
     </category>
 
-    <category><pattern>*</pattern>
+    <category>
+      <pattern>*</pattern>
       <template>
-        Sorry, I didn’t catch that. Which career’s salary would you like?
+        Sorry, I didn’t catch that. Which salary info?
         <button>Data Analyst</button>
         <button>Fullstack Developer</button>
         <button>UI Designer</button>
@@ -107,8 +99,9 @@
 
   </topic>
 
-  <!-- global trigger -->
-  <category><pattern>GET SALARY *</pattern>
+  <!-- Global trigger for “Get Salary X” -->
+  <category>
+    <pattern>GET SALARY *</pattern>
     <template>
       <think><set name="topic">salary_info</set></think>
       <srai><star/></srai>
