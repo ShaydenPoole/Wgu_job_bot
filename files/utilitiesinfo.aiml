@@ -1,82 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- Bot introduction -->
+    <!-- Common phrases and navigation -->
     <category>
-        <pattern>HELLO</pattern>
-        <template><srai>MAIN MENU</srai></template>
-    </category>
-    
-    <category>
-        <pattern>HI</pattern>
-        <template><srai>MAIN MENU</srai></template>
-    </category>
-    
-    <category>
-        <pattern>START</pattern>
-        <template><srai>MAIN MENU</srai></template>
-    </category>
-    
-    <!-- Main menu -->
-    <category>
-        <pattern>MAIN MENU</pattern>
-        <template>
-            Hello! Welcome to the computer science graduate student career services chatbot. I know graduating can be scary, hopefully I can help guide you in the right direction. How can I help you today?
-            <button>Career Assessment</button>
-            <button>Learn About Careers</button>
-            <button>Salary Information</button>
-        </template>
-    </category>
-    
-    <!-- Menu routing -->
-    <category>
-        <pattern>CAREER ASSESSMENT</pattern>
-        <template>
-            <think><set name="topic">career_assessment</set></think>
-            Lovely, let's get started. I will ask you a few questions to help determine which tech career might be the best fit for you.
-            <srai>QUESTION STRENGTH</srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>LEARN ABOUT CAREERS</pattern>
-        <template>
-            <think><set name="topic">career_info</set></think>
-            Which of these careers would you like to learn more about?
-            <button>Data Analyst</button>
-            <button>Fullstack Developer</button>
-            <button>UI Designer</button>
-            <button>System Administrator</button>
-            <button>Machine Learning Engineer</button>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>SALARY INFORMATION</pattern>
-        <template>
-            <think><set name="topic">salary_info</set></think>
-            Which career's salary information would you like to know about?
-            <button>Data Analyst</button>
-            <button>Fullstack Developer</button>
-            <button>UI Designer</button>
-            <button>System Administrator</button>
-            <button>Machine Learning Engineer</button>
-        </template>
-    </category>
-    
-    <!-- Fallback for unknown inputs -->
-    <category>
-        <pattern>*</pattern>
-        <template>
-            I'm sorry, I didn't understand that. Would you like to:
+        <pattern>THANKS</pattern>
+        <template>You're welcome! Is there anything else I can help you with?
             <button>Return to Main Menu</button>
-            <button>Career Assessment</button>
-            <button>Learn About Careers</button>
-            <button>Salary Information</button>
+            <button>No, I'm Done</button>
         </template>
     </category>
     
     <category>
-        <pattern>RETURN TO MAIN MENU</pattern>
-        <template><srai>MAIN MENU</srai></template>
+        <pattern>THANK YOU</pattern>
+        <template><srai>THANKS</srai></template>
+    </category>
+    
+    <category>
+        <pattern>NO I'M DONE</pattern>
+        <template>Thank you for using the CS Career Services chatbot. Good luck with your career journey!</template>
+    </category>
+    
+    <!-- Add more helpful patterns -->
+    <category>
+        <pattern>HELP</pattern>
+        <template>
+            I can help you with:
+            - Taking a career assessment to find your best fit
+            - Providing information about tech careers
+            - Sharing salary information for different tech roles
+            
+            What would you like to do?
+            <button>Career Assessment</button>
+            <button>Learn About Careers</button>
+            <button>Salary Information</button>
+            <button>Return to Main Menu</button>
+        </template>
+    </category>
+    
+    <!-- Handle basic conversational inputs -->
+    <category>
+        <pattern>HOW ARE YOU</pattern>
+        <template>
+            I'm functioning well and ready to help with your career questions! What would you like to know today?
+            <button>Return to Main Menu</button>
+        </template>
     </category>
 </aiml>
