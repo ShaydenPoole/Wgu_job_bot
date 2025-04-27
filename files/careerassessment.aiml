@@ -280,102 +280,107 @@
     </category>
     
     <category>
-        <pattern>CALCULATE RESULTS</pattern>
-        <template>
-            <think>
-                <!-- Find the highest score -->
-                <set name="highest_score">-999</set>
-                <set name="best_career">none</set>
-                
-                <!-- Check Data Analyst -->
-                <condition name="data_analyst">
-                    <li><value><get name="highest_score"/></value></li>
-                    <li>
-                        <set var="compare"><map name="math"><get name="data_analyst"/> &gt; <get name="highest_score"/></map></set>
-                        <condition var="compare" value="1">
-                            <set name="highest_score"><get name="data_analyst"/></set>
-                            <set name="best_career">Data Analyst</set>
-                        </condition>
-                    </li>
-                </condition>
-                
-                <!-- Check Fullstack Developer -->
-                <condition name="fullstack">
-                    <li><value><get name="highest_score"/></value></li>
-                    <li>
-                        <set var="compare"><map name="math"><get name="fullstack"/> &gt; <get name="highest_score"/></map></set>
-                        <condition var="compare" value="1">
-                            <set name="highest_score"><get name="fullstack"/></set>
-                            <set name="best_career">Fullstack Developer</set>
-                        </condition>
-                    </li>
-                </condition>
-                
-                <!-- Check UI Designer -->
-                <condition name="ui_designer">
-                    <li><value><get name="highest_score"/></value></li>
-                    <li>
-                        <set var="compare"><map name="math"><get name="ui_designer"/> &gt; <get name="highest_score"/></map></set>
-                        <condition var="compare" value="1">
-                            <set name="highest_score"><get name="ui_designer"/></set>
-                            <set name="best_career">UI Designer</set>
-                        </condition>
-                    </li>
-                </condition>
-                
-                <!-- Check System Administrator -->
-                <condition name="sys_admin">
-                    <li><value><get name="highest_score"/></value></li>
-                    <li>
-                        <set var="compare"><map name="math"><get name="sys_admin"/> &gt; <get name="highest_score"/></map></set>
-                        <condition var="compare" value="1">
-                            <set name="highest_score"><get name="sys_admin"/></set>
-                            <set name="best_career">System Administrator</set>
-                        </condition>
-                    </li>
-                </condition>
-                
-                <!-- Check Machine Learning Engineer -->
-                <condition name="ml_engineer">
-                    <li><value><get name="highest_score"/></value></li>
-                    <li>
-                        <set var="compare"><map name="math"><get name="ml_engineer"/> &gt; <get name="highest_score"/></map></set>
-                        <condition var="compare" value="1">
-                            <set name="highest_score"><get name="ml_engineer"/></set>
-                            <set name="best_career">Machine Learning Engineer</set>
-                        </condition>
-                    </li>
-                </condition>
-                
-                <!-- Save result for later use -->
-                <set name="assessment_result"><get name="best_career"/></set>
-            </think>
+    <pattern>CALCULATE RESULTS</pattern>
+    <template>
+        <think>
+            <!-- Initialize with default values -->
+            <set name="highest_score">-999</set>
+            <set name="best_career">Data Analyst</set> <!-- Set a default value -->
             
-            <b>Based on your responses, your best career match is: <get name="best_career"/></b>
-            
-            <condition name="best_career">
-                <li value="Data Analyst">
-                    Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
+            <!-- Check Data Analyst -->
+            <condition name="data_analyst">
+                <li value="undefined">
+                    <set name="data_analyst">0</set>
                 </li>
-                <li value="Fullstack Developer">
-                    Fullstack Developers build complete web applications. You would enjoy working on both frontend and backend technologies.
+            </condition>
+            <condition name="fullstack">
+                <li value="undefined">
+                    <set name="fullstack">0</set>
                 </li>
-                <li value="UI Designer">
-                    UI Designers create user interfaces that are both functional and beautiful. You would enjoy making products that users love to interact with.
+            </condition>
+            <condition name="ui_designer">
+                <li value="undefined">
+                    <set name="ui_designer">0</set>
                 </li>
-                <li value="System Administrator">
-                    System Administrators ensure networks and servers run smoothly. You would enjoy solving technical problems and maintaining critical infrastructure.
+            </condition>
+            <condition name="sys_admin">
+                <li value="undefined">
+                    <set name="sys_admin">0</set>
                 </li>
-                <li value="Machine Learning Engineer">
-                    Machine Learning Engineers build AI systems and algorithms. You would enjoy working on cutting-edge technology and complex problems.
+            </condition>
+            <condition name="ml_engineer">
+                <li value="undefined">
+                    <set name="ml_engineer">0</set>
                 </li>
             </condition>
             
-            You best match with this result! Congratulations. Would you like to know more about this career?
-            <button>Yes</button>
-            <button>No</button>
-        </template>
-    </category>
+            <!-- Check Data Analyst score -->
+            <set var="compare"><map name="math"><get name="data_analyst"/> &gt; <get name="highest_score"/></map></set>
+            <condition var="compare" value="1">
+                <set name="highest_score"><get name="data_analyst"/></set>
+                <set name="best_career">Data Analyst</set>
+            </condition>
+            
+            <!-- Check Fullstack Developer score -->
+            <set var="compare"><map name="math"><get name="fullstack"/> &gt; <get name="highest_score"/></map></set>
+            <condition var="compare" value="1">
+                <set name="highest_score"><get name="fullstack"/></set>
+                <set name="best_career">Fullstack Developer</set>
+            </condition>
+            
+            <!-- Check UI Designer score -->
+            <set var="compare"><map name="math"><get name="ui_designer"/> &gt; <get name="highest_score"/></map></set>
+            <condition var="compare" value="1">
+                <set name="highest_score"><get name="ui_designer"/></set>
+                <set name="best_career">UI Designer</set>
+            </condition>
+            
+            <!-- Check System Administrator score -->
+            <set var="compare"><map name="math"><get name="sys_admin"/> &gt; <get name="highest_score"/></map></set>
+            <condition var="compare" value="1">
+                <set name="highest_score"><get name="sys_admin"/></set>
+                <set name="best_career">System Administrator</set>
+            </condition>
+            
+            <!-- Check Machine Learning Engineer score -->
+            <set var="compare"><map name="math"><get name="ml_engineer"/> &gt; <get name="highest_score"/></map></set>
+            <condition var="compare" value="1">
+                <set name="highest_score"><get name="ml_engineer"/></set>
+                <set name="best_career">Machine Learning Engineer</set>
+            </condition>
+            
+            <!-- Save result for later use -->
+            <set name="assessment_result"><get name="best_career"/></set>
+        </think>
+        
+        <b>Based on your responses, your best career match is: <get name="best_career"/></b>
+        
+        <condition name="best_career">
+            <li value="Data Analyst">
+                Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
+            </li>
+            <li value="Fullstack Developer">
+                Fullstack Developers build complete web applications. You would enjoy working on both frontend and backend technologies.
+            </li>
+            <li value="UI Designer">
+                UI Designers create user interfaces that are both functional and beautiful. You would enjoy making products that users love to interact with.
+            </li>
+            <li value="System Administrator">
+                System Administrators ensure networks and servers run smoothly. You would enjoy solving technical problems and maintaining critical infrastructure.
+            </li>
+            <li value="Machine Learning Engineer">
+                Machine Learning Engineers build AI systems and algorithms. You would enjoy working on cutting-edge technology and complex problems.
+            </li>
+            <li>
+                Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
+            </li>
+        </condition>
+        
+        You best match with this result! Congratulations. Would you like to know more about this career?
+        <button>Yes</button>
+        <button>No</button>
+    </template>
+</category>
     
     <!-- Handle follow-up -->
     <category>
