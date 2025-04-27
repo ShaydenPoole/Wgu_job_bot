@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- Bot introduction -->
+    <!-- Welcome patterns -->
     <category>
         <pattern>HELLO</pattern>
         <template><srai>MAIN MENU</srai></template>
@@ -16,14 +16,21 @@
         <template><srai>MAIN MENU</srai></template>
     </category>
     
-    <!-- Main menu -->
     <category>
-        <pattern>MAIN MENU</pattern>
+        <pattern>^MAIN MENU$</pattern>
         <template>
             Hello! Welcome to the computer science graduate student career services chatbot. I know graduating can be scary, hopefully I can help guide you in the right direction. How can I help you today?
             <button>Career Assessment</button>
             <button>Learn About Careers</button>
             <button>Salary Information</button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>RETURN TO MAIN MENU</pattern>
+        <template>
+            <think><set name="topic">general</set></think>
+            <srai>MAIN MENU</srai>
         </template>
     </category>
     
@@ -73,10 +80,5 @@
             <button>Learn About Careers</button>
             <button>Salary Information</button>
         </template>
-    </category>
-    
-    <category>
-        <pattern>RETURN TO MAIN MENU</pattern>
-        <template><srai>MAIN MENU</srai></template>
     </category>
 </aiml>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
     <topic name="salary_info">
+        <!-- Salary info patterns -->
         <category>
             <pattern>DATA ANALYST</pattern>
             <template>
@@ -91,7 +92,7 @@
             </template>
         </category>
         
-        <!-- Route to career info -->
+        <!-- Handle navigation from salary info -->
         <category>
             <pattern>LEARN ABOUT THIS CAREER</pattern>
             <template>

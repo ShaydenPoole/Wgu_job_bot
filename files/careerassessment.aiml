@@ -352,6 +352,9 @@
                             </condition>
                         </li>
                     </condition>
+                    
+                    <!-- Save result for later use -->
+                    <set name="assessment_result"><get name="best_career"/></set>
                 </think>
                 
                 <b>Based on your responses, your best career match is: <get name="best_career"/></b>
@@ -383,19 +386,19 @@
         <!-- Handle follow-up -->
         <category>
             <pattern>YES</pattern>
-            <that>WOULD YOU LIKE TO KNOW MORE ABOUT THIS CAREER</that>
+            <that>YOU BEST MATCH WITH THIS RESULT CONGRATULATIONS WOULD YOU LIKE TO KNOW MORE ABOUT THIS CAREER</that>
             <template>
                 <think>
                     <set name="topic">career_info</set>
-                    <set name="selected_career"><get name="best_career"/></set>
+                    <set name="selected_career"><get name="assessment_result"/></set>
                 </think>
-                <srai><get name="best_career"/></srai>
+                <srai><get name="assessment_result"/></srai>
             </template>
         </category>
         
         <category>
             <pattern>NO</pattern>
-            <that>WOULD YOU LIKE TO KNOW MORE ABOUT THIS CAREER</that>
+            <that>YOU BEST MATCH WITH THIS RESULT CONGRATULATIONS WOULD YOU LIKE TO KNOW MORE ABOUT THIS CAREER</that>
             <template>
                 Thank you for joining this session! See you next time.
                 <think><set name="topic">general</set></think>
