@@ -5,6 +5,7 @@
         <pattern>GET SALARY DATA ANALYST</pattern>
         <template>
             <think><set name="topic">salary_info</set></think>
+            <think><set name="selected_career">Data Analyst</set></think>
             Here's salary information for Data Analysts:
             
             Data Analysts earn competitive salaries that vary by experience, location, and industry. For detailed and up-to-date salary information, please check:
@@ -24,6 +25,7 @@
         <pattern>GET SALARY FULLSTACK DEVELOPER</pattern>
         <template>
             <think><set name="topic">salary_info</set></think>
+            <think><set name="selected_career">Fullstack Developer</set></think>
             Here's salary information for Fullstack Developers:
             
             Fullstack Developers typically earn above-average salaries due to their versatile skillset. For detailed and up-to-date salary information, please check:
@@ -43,6 +45,7 @@
         <pattern>GET SALARY UI DESIGNER</pattern>
         <template>
             <think><set name="topic">salary_info</set></think>
+            <think><set name="selected_career">UI Designer</set></think>
             Here's salary information for UI Designers:
             
             UI Designers earn competitive salaries that can vary based on location, experience, and industry. For detailed and up-to-date salary information, please check:
@@ -62,6 +65,7 @@
         <pattern>GET SALARY SYSTEM ADMINISTRATOR</pattern>
         <template>
             <think><set name="topic">salary_info</set></think>
+            <think><set name="selected_career">System Administrator</set></think>
             Here's salary information for System Administrators:
             
             System Administrators earn solid salaries that can vary based on location, experience, and the complexity of systems they manage. For detailed and up-to-date salary information, please check:
@@ -81,6 +85,7 @@
         <pattern>GET SALARY MACHINE LEARNING ENGINEER</pattern>
         <template>
             <think><set name="topic">salary_info</set></think>
+            <think><set name="selected_career">Machine Learning Engineer</set></think>
             Here's salary information for Machine Learning Engineers:
             
             Machine Learning Engineers typically earn high salaries due to the specialized and in-demand nature of their skills. For detailed and up-to-date salary information, please check:
@@ -143,7 +148,6 @@
         <template>
             <think>
                 <set name="topic">career_info</set>
-                <set name="selected_career"><get name="selected_career"/></set>
             </think>
             <srai><get name="selected_career"/></srai>
         </template>

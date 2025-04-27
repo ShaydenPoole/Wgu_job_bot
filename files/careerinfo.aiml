@@ -5,6 +5,7 @@
         <pattern>DATA ANALYST</pattern>
         <template>
             <think><set name="topic">career_info</set></think>
+            <think><set name="selected_career">Data Analyst</set></think>
             Here's information about becoming a Data Analyst:
             
             Data Analysts examine large datasets to identify trends, develop charts, and create visual presentations to help businesses make better decisions. They use tools like SQL, Python, R, and Excel to manipulate data and create visualizations.
@@ -24,6 +25,7 @@
         <pattern>FULLSTACK DEVELOPER</pattern>
         <template>
             <think><set name="topic">career_info</set></think>
+            <think><set name="selected_career">Fullstack Developer</set></think>
             Here's information about becoming a Fullstack Developer:
             
             Fullstack Developers are proficient in both frontend and backend development. They can work on all aspects of a web application, from user interfaces to server architecture and databases. They typically know HTML, CSS, JavaScript, and at least one backend language like Python, Java, or Ruby.
@@ -43,6 +45,7 @@
         <pattern>UI DESIGNER</pattern>
         <template>
             <think><set name="topic">career_info</set></think>
+            <think><set name="selected_career">UI Designer</set></think>
             Here's information about becoming a UI Designer:
             
             UI Designers create intuitive, aesthetically pleasing interfaces for digital products. They focus on the look and feel of applications, ensuring they're both visually appealing and easy to use. They often work with UX designers and use tools like Figma, Adobe XD, and Sketch.
@@ -62,6 +65,7 @@
         <pattern>SYSTEM ADMINISTRATOR</pattern>
         <template>
             <think><set name="topic">career_info</set></think>
+            <think><set name="selected_career">System Administrator</set></think>
             Here's information about becoming a System Administrator:
             
             System Administrators are responsible for maintaining, configuring, and ensuring the reliable operation of computer systems and networks. They handle installation, security management, troubleshooting, and routine maintenance of servers and infrastructure.
@@ -81,6 +85,7 @@
         <pattern>MACHINE LEARNING ENGINEER</pattern>
         <template>
             <think><set name="topic">career_info</set></think>
+            <think><set name="selected_career">Machine Learning Engineer</set></think>
             Here's information about becoming a Machine Learning Engineer:
             
             Machine Learning Engineers design and implement AI systems that can learn from and make decisions based on data. They create algorithms, build models, and deploy machine learning solutions. This role requires strong programming skills, mathematical knowledge, and data analysis abilities.
@@ -102,9 +107,8 @@
         <template>
             <think>
                 <set name="topic">salary_info</set>
-                <set name="selected_career"><get name="selected_career"/></set>
             </think>
-            <srai><get name="selected_career"/></srai>
+            <srai>GET SALARY <get name="selected_career"/></srai>
         </template>
     </category>
     

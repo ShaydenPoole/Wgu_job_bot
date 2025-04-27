@@ -37,7 +37,7 @@
         <pattern>BUILDING COMPLETE APPLICATIONS FROM FRONT TO BACK</pattern>
         <template>
             <think>
-                <set name="data_analyst"><map name="math"><get name="fullstack"/> + 2</map></set>
+                <set name="fullstack"><map name="math"><get name="fullstack"/> + 2</map></set>
                 <set name="assessment_step">2</set>
                 <set name="topic">career_assessment</set>
             </think>
@@ -284,78 +284,44 @@
     <template>
         <think>
             <!-- Initialize with default values -->
-            <set name="highest_score">-999</set>
-            <set name="best_career">undetermined</set>
-            
-            <!-- Check Data Analyst -->
-            <condition name="data_analyst">
-                <li value="undefined">
-                    <set name="data_analyst">0</set>
-                </li>
-            </condition>
-            <condition name="fullstack">
-                <li value="undefined">
-                    <set name="fullstack">0</set>
-                </li>
-            </condition>
-            <condition name="ui_designer">
-                <li value="undefined">
-                    <set name="ui_designer">0</set>
-                </li>
-            </condition>
-            <condition name="sys_admin">
-                <li value="undefined">
-                    <set name="sys_admin">0</set>
-                </li>
-            </condition>
-            <condition name="ml_engineer">
-                <li value="undefined">
-                    <set name="ml_engineer">0</set>
-                </li>
-            </condition>
-            
-            <!-- Debug output to check actual values -->
-            <!-- Uncomment if needed for debugging
-            Scores: DA: <get name="data_analyst"/>, FS: <get name="fullstack"/>, UI: <get name="ui_designer"/>, SA: <get name="sys_admin"/>, ML: <get name="ml_engineer"/>
-            -->
-            
-            <!-- Check Data Analyst score -->
-            <set var="compare"><map name="math"><get name="data_analyst"/> &gt; <get name="highest_score"/></map></set>
-            <condition var="compare" value="1">
-                <set name="highest_score"><get name="data_analyst"/></set>
-                <set name="best_career">Data Analyst</set>
-            </condition>
+            <set name="best_career">Data Analyst</set>
+            <set name="highest_score"><get name="data_analyst"/></set>
             
             <!-- Check Fullstack Developer score -->
-            <set var="compare"><map name="math"><get name="fullstack"/> &gt; <get name="highest_score"/></map></set>
-            <condition var="compare" value="1">
-                <set name="highest_score"><get name="fullstack"/></set>
-                <set name="best_career">Fullstack Developer</set>
+            <condition>
+                <li><map name="math"><get name="fullstack"/> &gt; <get name="highest_score"/></map> = 1
+                    <set name="best_career">Fullstack Developer</set>
+                    <set name="highest_score"><get name="fullstack"/></set>
+                </li>
             </condition>
             
             <!-- Check UI Designer score -->
-            <set var="compare"><map name="math"><get name="ui_designer"/> &gt; <get name="highest_score"/></map></set>
-            <condition var="compare" value="1">
-                <set name="highest_score"><get name="ui_designer"/></set>
-                <set name="best_career">UI Designer</set>
+            <condition>
+                <li><map name="math"><get name="ui_designer"/> &gt; <get name="highest_score"/></map> = 1
+                    <set name="best_career">UI Designer</set>
+                    <set name="highest_score"><get name="ui_designer"/></set>
+                </li>
             </condition>
             
             <!-- Check System Administrator score -->
-            <set var="compare"><map name="math"><get name="sys_admin"/> &gt; <get name="highest_score"/></map></set>
-            <condition var="compare" value="1">
-                <set name="highest_score"><get name="sys_admin"/></set>
-                <set name="best_career">System Administrator</set>
+            <condition>
+                <li><map name="math"><get name="sys_admin"/> &gt; <get name="highest_score"/></map> = 1
+                    <set name="best_career">System Administrator</set>
+                    <set name="highest_score"><get name="sys_admin"/></set>
+                </li>
             </condition>
             
             <!-- Check Machine Learning Engineer score -->
-            <set var="compare"><map name="math"><get name="ml_engineer"/> &gt; <get name="highest_score"/></map></set>
-            <condition var="compare" value="1">
-                <set name="highest_score"><get name="ml_engineer"/></set>
-                <set name="best_career">Machine Learning Engineer</set>
+            <condition>
+                <li><map name="math"><get name="ml_engineer"/> &gt; <get name="highest_score"/></map> = 1
+                    <set name="best_career">Machine Learning Engineer</set>
+                    <set name="highest_score"><get name="ml_engineer"/></set>
+                </li>
             </condition>
             
             <!-- Save result for later use -->
             <set name="assessment_result"><get name="best_career"/></set>
+            <set name="selected_career"><get name="best_career"/></set>
             <set name="topic">assessment_result</set>
         </think>
         
@@ -377,9 +343,6 @@
             <li value="Machine Learning Engineer">
                 Machine Learning Engineers build AI systems and algorithms. You would enjoy working on cutting-edge technology and complex problems.
             </li>
-            <li>
-                Data Analysts work with data to help businesses make better decisions. You would enjoy working with numbers and creating visualizations.
-            </li>
         </condition>
         
         Would you like to know more about this career?
@@ -388,27 +351,37 @@
     </template>
 </category>
     
-    <!-- Handle follow-up -->
-    <category>
-        <pattern>YES</pattern>
-        <that>YOU BEST MATCH WITH THIS RESULT CONGRATULATIONS WOULD YOU LIKE TO KNOW MORE ABOUT THIS CAREER</that>
-        <template>
-            <think>
-                <set name="topic">career_info</set>
-                <set name="selected_career"><get name="assessment_result"/></set>
-            </think>
-            <srai><get name="assessment_result"/></srai>
-        </template>
-    </category>
-    
-    <category>
-        <pattern>NO</pattern>
-        <that>YOU BEST MATCH WITH THIS RESULT CONGRATULATIONS WOULD YOU LIKE TO KNOW MORE ABOUT THIS CAREER</that>
-        <template>
-            Thank you for joining this session! See you next time.
-            <think><set name="topic">general</set></think>
-        </template>
-    </category>
+    <!-- Topic for handling assessment result responses -->
+    <topic name="assessment_result">
+        <category>
+            <pattern>YES</pattern>
+            <template>
+                <think>
+                    <set name="topic">career_info</set>
+                </think>
+                <srai><get name="assessment_result"/></srai>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>NO</pattern>
+            <template>
+                Thank you for joining this session! See you next time.
+                <think><set name="topic">general</set></think>
+                <button>Return to Main Menu</button>
+            </template>
+        </category>
+        
+        <category>
+            <pattern>*</pattern>
+            <template>
+                I didn't understand that. Would you like to know more about your career match?
+                <button>Yes</button>
+                <button>No</button>
+                <button>Return to Main Menu</button>
+            </template>
+        </category>
+    </topic>
     
     <!-- Handle unexpected inputs during assessment -->
     <category>
@@ -445,4 +418,22 @@
             </template>
         </category>
     </topic>
+    
+    <!-- Debug category for troubleshooting -->
+    <category>
+        <pattern>DEBUG SCORES</pattern>
+        <template>
+            Current scores:
+            Data Analyst: <get name="data_analyst"/>
+            Fullstack Developer: <get name="fullstack"/>
+            UI Designer: <get name="ui_designer"/>
+            System Administrator: <get name="sys_admin"/>
+            Machine Learning Engineer: <get name="ml_engineer"/>
+            Best Career: <get name="best_career"/>
+            Selected Career: <get name="selected_career"/>
+            Assessment Result: <get name="assessment_result"/>
+            Current Topic: <get name="topic"/>
+            Assessment Step: <get name="assessment_step"/>
+        </template>
+    </category>
 </aiml>

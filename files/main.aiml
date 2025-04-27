@@ -67,7 +67,16 @@
     <category>
         <pattern>CAREER ASSESSMENT</pattern>
         <template>
-            <think><set name="topic">career_assessment</set></think>
+            <think>
+                <set name="topic">career_assessment</set>
+                <!-- Initialize all scores to 0 -->
+                <set name="data_analyst">0</set>
+                <set name="fullstack">0</set>
+                <set name="ui_designer">0</set>
+                <set name="sys_admin">0</set>
+                <set name="ml_engineer">0</set>
+                <set name="assessment_step">1</set>
+            </think>
             Lovely, let's get started. I will ask you a few questions to help determine which tech career might be the best fit for you.
             <srai>QUESTION STRENGTH</srai>
         </template>
