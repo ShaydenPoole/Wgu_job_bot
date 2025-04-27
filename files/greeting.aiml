@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+
+  <category>
+    <pattern>HI</pattern>
+    <template>
+      Hello! I’m CareerBot. To begin, please tell me your top strengths (e.g., problem-solving, creativity, data analysis).
+      <think><set name="stage">strengths</set></think>
+    </template>
+  </category>
+
+  <category>
+    <pattern>HELLO</pattern>
+    <template>
+      Hello! I’m CareerBot. To begin, please tell me your top strengths (e.g., problem-solving, creativity, data analysis).
+      <think><set name="stage">strengths</set></think>
+    </template>
+  </category>
+
+  <category>
+    <pattern>START</pattern>
+    <template>
+      Hello! I’m CareerBot. To begin, please tell me your top strengths (e.g., problem-solving, creativity, data analysis).
+      <think><set name="stage">strengths</set></think>
+    </template>
+  </category>
+
 </aiml>
