@@ -1,23 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-    <!-- Welcome patterns -->
+    <!-- Welcome patterns - these need to be more specific -->
     <category>
         <pattern>HELLO</pattern>
-        <template><srai>MAIN MENU</srai></template>
+        <template>
+            <srai>MAIN MENU</srai>
+        </template>
     </category>
     
     <category>
         <pattern>HI</pattern>
-        <template><srai>MAIN MENU</srai></template>
+        <template>
+            <srai>MAIN MENU</srai>
+        </template>
     </category>
     
     <category>
         <pattern>START</pattern>
-        <template><srai>MAIN MENU</srai></template>
+        <template>
+            <srai>MAIN MENU</srai>
+        </template>
+    </category>
+    
+    <!-- Also add more variations of greetings -->
+    <category>
+        <pattern>HEY</pattern>
+        <template>
+            <srai>MAIN MENU</srai>
+        </template>
     </category>
     
     <category>
-        <pattern>^MAIN MENU$</pattern>
+        <pattern>HELLO *</pattern>
+        <template>
+            <srai>MAIN MENU</srai>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>HI *</pattern>
+        <template>
+            <srai>MAIN MENU</srai>
+        </template>
+    </category>
+    
+    <!-- Main menu pattern - note the simpler pattern -->
+    <category>
+        <pattern>MAIN MENU</pattern>
         <template>
             Hello! Welcome to the computer science graduate student career services chatbot. I know graduating can be scary, hopefully I can help guide you in the right direction. How can I help you today?
             <button>Career Assessment</button>
