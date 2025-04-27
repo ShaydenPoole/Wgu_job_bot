@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+  <category>
+    <pattern>ASSESS CAREER</pattern>
+    <template>
+      <think>
+        <condition name="strengths">
+          <li value="problem-solving"><set name="career">Software Engineer</set></li>
+          <li value="data analysis"><set name="career">Data Analyst</set></li>
+          <li value="security"><set name="career">Cybersecurity Specialist</set></li>
+          <li value="creativity"><set name="career">UX Designer</set></li>
+          <li value="systems-thinking"><set name="career">Systems Analyst</set></li>
+          <!-- default if nothing matches -->
+          <li><set name="career">Software Engineer</set></li>
+        </condition>
+      </think>
+      Based on your strengths, <get name="career"/> is a great fit for you.
+      <srai><get name="career"/>_COURSES</srai>
+    </template>
+  </category>
 </aiml>

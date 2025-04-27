@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+  <category>
+    <pattern>*</pattern>
+    <template>
+      I’m sorry, I didn’t catch that. Could you rephrase or type "help" for guidance?
+      <srai>REPROMPT</srai>
+    </template>
+  </category>
+  <category>
+    <pattern>REPROMPT</pattern>
+    <template>
+      Please choose from the options I provided or ask for help by typing "help."
+    </template>
+  </category>
+  <category>
+    <pattern>HELP</pattern>
+    <template>
+      You can start by saying "Hi" or "Hello," then tell me your strengths and weaknesses when prompted.
+    </template>
+  </category>
 </aiml>

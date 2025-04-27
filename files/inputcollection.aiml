@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="2.0">
-	<!-- insert your AIML categories here -->
+  <category>
+    <pattern>MY STRENGTHS ARE *</pattern>
+    <template>
+      Got it—your strengths are <star/>. Now, what areas would you like to improve (e.g., public speaking, time management)?
+      <think>
+        <set name="strengths"><star/></set>
+        <set name="stage">weaknesses</set>
+      </think>
+    </template>
+  </category>
+  <category>
+    <pattern>MY WEAKNESSES ARE *</pattern>
+    <template>
+      Thanks! You’d like to improve <star/>. Let me assess the best career path for you.
+      <think>
+        <set name="weaknesses"><star/></set>
+        <srai>ASSESS CAREER</srai>
+      </think>
+    </template>
+  </category>
 </aiml>
