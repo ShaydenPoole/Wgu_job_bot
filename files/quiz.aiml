@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+  <!-- 1) Initialize the quiz -->
+  <category>
+    <pattern>INIT QUIZ</pattern>
+    <template>
+      <think>
+        <set name="quiz_step">1</set>
+        <set name="fullstack_score">0</set>
+        <set name="data_score">0</set>
+        <set name="ux_score">0</set>
+        <set name="sys_score">0</set>
+        <set name="ml_score">0</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <!-- 2) Ask Q1–Q5 based on quiz_step -->
+  <category>
+    <pattern>ASK QUESTION</pattern>
+    <template>
+      <condition name="quiz_step">
+        <!-- Question 1 -->
+        <li value="1">
+          Q1/5: Do you prefer collaborating on projects with others, or tackling work solo?
+          <reply>
+            <text>Collaborating</text>
+            <postback>ANS Q1 COLLAB</postback>
+          </reply>
+          <reply>
+            <text>Solo</text>
+            <postback>ANS Q1 SOLO</postback>
+          </reply>
+        </li>
+
+        <!-- Question 2 -->
+        <li value="2">
+          Q2/5: Do you enjoy analytical problem-solving more than creative/design tasks?
+          <reply>
+            <text>Analytical</text>
+            <postback>ANS Q2 ANALYTICAL</postback>
+          </reply>
+          <reply>
+            <text>Creative/design</text>
+            <postback>ANS Q2 CREATIVE</postback>
+          </reply>
+        </li>
+
+        <!-- Question 3 -->
+        <li value="3">
+          Q3/5: Are you drawn to crafting user experiences &amp; interfaces, or to working on the underlying logic &amp; infrastructure?
+          <reply>
+            <text>UX &amp; interfaces</text>
+            <postback>ANS Q3 UX</postback>
+          </reply>
+          <reply>
+            <text>Logic &amp; infra</text>
+            <postback>ANS Q3 LOGIC</postback>
+          </reply>
+        </li>
+
+        <!-- Question 4 -->
+        <li value="4">
+          Q4/5: Does exploring large datasets to uncover insights excite you, or do you prefer building &amp; deploying software features?
+          <reply>
+            <text>Data exploration</text>
+            <postback>ANS Q4 EXPLORE</postback>
+          </reply>
+          <reply>
+            <text>Feature building</text>
+            <postback>ANS Q4 FEATURE</postback>
+          </reply>
+        </li>
+
+        <!-- Question 5 -->
+        <li value="5">
+          Q5/5: Are you motivated by optimizing system performance &amp; reliability, or by designing innovative concepts &amp; visuals?
+          <reply>
+            <text>Performance &amp; reliability</text>
+            <postback>ANS Q5 PERFORMANCE</postback>
+          </reply>
+          <reply>
+            <text>Concepts &amp; visuals</text>
+            <postback>ANS Q5 CONCEPTS</postback>
+          </reply>
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- 3) Q1 Handlers -->
+  <category>
+    <pattern>ANS Q1 COLLAB</pattern>
+    <template>
+      <think>
+        <set name="fullstack_score">
+          <srai>XADD <get name="fullstack_score"/> XS 1</srai>
+        </set>
+        <set name="ux_score">
+          <srai>XADD <get name="ux_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">2</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ANS Q1 SOLO</pattern>
+    <template>
+      <think>
+        <set name="data_score">
+          <srai>XADD <get name="data_score"/> XS 1</srai>
+        </set>
+        <set name="ml_score">
+          <srai>XADD <get name="ml_score"/> XS 1</srai>
+        </set>
+        <set name="sys_score">
+          <srai>XADD <get name="sys_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">2</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <!-- 4) Q2 Handlers -->
+  <category>
+    <pattern>ANS Q2 ANALYTICAL</pattern>
+    <template>
+      <think>
+        <set name="data_score">
+          <srai>XADD <get name="data_score"/> XS 1</srai>
+        </set>
+        <set name="ml_score">
+          <srai>XADD <get name="ml_score"/> XS 1</srai>
+        </set>
+        <set name="sys_score">
+          <srai>XADD <get name="sys_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">3</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ANS Q2 CREATIVE</pattern>
+    <template>
+      <think>
+        <set name="ux_score">
+          <srai>XADD <get name="ux_score"/> XS 1</srai>
+        </set>
+        <set name="fullstack_score">
+          <srai>XADD <get name="fullstack_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">3</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <!-- 5) Q3 Handlers -->
+  <category>
+    <pattern>ANS Q3 UX</pattern>
+    <template>
+      <think>
+        <set name="ux_score">
+          <srai>XADD <get name="ux_score"/> XS 1</srai>
+        </set>
+        <set name="fullstack_score">
+          <srai>XADD <get name="fullstack_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">4</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ANS Q3 LOGIC</pattern>
+    <template>
+      <think>
+        <set name="data_score">
+          <srai>XADD <get name="data_score"/> XS 1</srai>
+        </set>
+        <set name="ml_score">
+          <srai>XADD <get name="ml_score"/> XS 1</srai>
+        </set>
+        <set name="sys_score">
+          <srai>XADD <get name="sys_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">4</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <!-- 6) Q4 Handlers -->
+  <category>
+    <pattern>ANS Q4 EXPLORE</pattern>
+    <template>
+      <think>
+        <set name="data_score">
+          <srai>XADD <get name="data_score"/> XS 1</srai>
+        </set>
+        <set name="ml_score">
+          <srai>XADD <get name="ml_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">5</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ANS Q4 FEATURE</pattern>
+    <template>
+      <think>
+        <set name="fullstack_score">
+          <srai>XADD <get name="fullstack_score"/> XS 1</srai>
+        </set>
+        <set name="ux_score">
+          <srai>XADD <get name="ux_score"/> XS 1</srai>
+        </set>
+        <set name="sys_score">
+          <srai>XADD <get name="sys_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">5</set>
+      </think>
+      <srai>ASK QUESTION</srai>
+    </template>
+  </category>
+
+  <!-- 7) Q5 Handlers -->
+  <category>
+    <pattern>ANS Q5 PERFORMANCE</pattern>
+    <template>
+      <think>
+        <set name="sys_score">
+          <srai>XADD <get name="sys_score"/> XS 1</srai>
+        </set>
+        <set name="fullstack_score">
+          <srai>XADD <get name="fullstack_score"/> XS 1</srai>
+        </set>
+        <set name="ml_score">
+          <srai>XADD <get name="ml_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">6</set>
+      </think>
+      <srai>COMPLETE QUIZ</srai>
+    </template>
+  </category>
+
+  <category>
+    <pattern>ANS Q5 CONCEPTS</pattern>
+    <template>
+      <think>
+        <set name="ux_score">
+          <srai>XADD <get name="ux_score"/> XS 1</srai>
+        </set>
+        <set name="data_score">
+          <srai>XADD <get name="data_score"/> XS 1</srai>
+        </set>
+        <set name="quiz_step">6</set>
+      </think>
+      <srai>COMPLETE QUIZ</srai>
+    </template>
+  </category>
+
+  <!-- 8) Final output -->
+    <!-- 8) Final output + career selection -->
+  <category>
+    <pattern>COMPLETE QUIZ</pattern>
+    <template>
+      Here are your final scores:<br/>
+      - Full-Stack Engineering: <get name="fullstack_score"/><br/>
+      - Data Analysis: <get name="data_score"/><br/>
+      - UX/UI Design: <get name="ux_score"/><br/>
+      - Systems Administration: <get name="sys_score"/><br/>
+      - ML Engineering: <get name="ml_score"/><br/><br/>
+
+      Which career would you like to learn more about?
+      <reply>
+        <text>Full-Stack Engineering</text>
+        <postback>FULL STACK ENGINEERING</postback>
+      </reply>
+      <reply>
+        <text>Data Analysis</text>
+        <postback>DATA ANALYSIS</postback>
+      </reply>
+      <reply>
+        <text>UX/UI Design</text>
+        <postback>UX UI DESIGN</postback>
+      </reply>
+      <reply>
+        <text>Systems Administration</text>
+        <postback>SYSTEMS ADMINISTRATION</postback>
+      </reply>
+      <reply>
+        <text>ML Engineering</text>
+        <postback>MACHINE LEARNING ENGINEERING</postback>
+      </reply>
+    </template>
+  </category>
+
+
+</aiml>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+  <!-- One-time greeting gated by asked_quiz predicate -->
+  <category>
+    <pattern>*</pattern>
+    <template>
+      <condition name="asked_quiz">
+        <li value="true"></li>
+        <li>
+          <think><set name="asked_quiz">true</set></think>
+          Hi there! I'm a career advisor chatbot. Would you like to take a quick 5-question quiz?
+          <reply>
+            <text>Yes, start the quiz!</text>
+            <postback>YES START THE QUIZ</postback>
+          </reply>
+          <reply>
+            <text>No, just tell me the options.</text>
+            <postback>NO JUST TELL ME THE OPTIONS</postback>
+          </reply>
+        </li>
+      </condition>
+    </template>
+  </category>
+
+  <!-- If user declines, guide them to choose a career -->
+  <category>
+    <pattern>NO JUST TELL ME THE OPTIONS</pattern>
+    <template>
+      Here are the careers I can tell you about—just click one:
+      <reply>
+        <text>Full-Stack Engineering</text>
+        <postback>FULL STACK ENGINEERING</postback>
+      </reply>
+      <reply>
+        <text>Data Analysis</text>
+        <postback>DATA ANALYSIS</postback>
+      </reply>
+      <reply>
+        <text>UX/UI Design</text>
+        <postback>UX UI DESIGN</postback>
+      </reply>
+      <reply>
+        <text>Systems Administration</text>
+        <postback>SYSTEMS ADMINISTRATION</postback>
+      </reply>
+      <reply>
+        <text>ML Engineering</text>
+        <postback>MACHINE LEARNING ENGINEERING</postback>
+      </reply>
+    </template>
+  </category>
+
+  <!-- Redirect "Yes" into the quiz logic -->
+  <category>
+    <pattern>YES START THE QUIZ</pattern>
+    <template>
+      <!-- Hand off to quiz engine -->
+      <srai>INIT QUIZ</srai>
+    </template>
+  </category>
+
+</aiml>

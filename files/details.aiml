@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+  <!-- Data Analysis -->
+  <category>
+    <pattern>DATA ANALYSIS</pattern>
+    <template>
+      <b>Data Analysis</b><br/>
+      • <b>What they do:</b> Collect, clean, and interpret large datasets to uncover trends and insights that inform business decisions.<br/>
+      • <b>Skills &amp; Tools:</b> Python (Pandas, NumPy), R, SQL, Excel, Tableau or Power BI, statistical analysis.<br/>
+      • <b>Junior Salary:</b> Approximately $55,000–$70,000 per year.<br/>
+      • <b>Learn more:</b>
+      <a href="https://www.indeed.com/career-advice/finding-a-job/data-analyst-job-description"
+         target="_blank" rel="noopener">
+        https://www.indeed.com/career-advice/finding-a-job/data-analyst-job-description
+      </a><br/><br/>
+
+      Would you like to learn about another career or finish?
+      <reply>
+        <text>Another career</text>
+        <postback>SELECT AGAIN</postback>
+      </reply>
+      <reply>
+        <text>Finish</text>
+        <postback>EXIT</postback>
+      </reply>
+    </template>
+  </category>
+
+  <!-- Full-Stack Engineering -->
+  <category>
+    <pattern>FULL STACK ENGINEERING</pattern>
+    <template>
+      <b>Full-Stack Engineering</b><br/>
+      • <b>What they do:</b> Build and maintain both front-end (UI) and back-end (server, database) components of web applications.<br/>
+      • <b>Skills &amp; Tools:</b> JavaScript (React, Node.js), HTML/CSS, REST APIs, databases (SQL/NoSQL), Git, Docker.<br/>
+      • <b>Junior Salary:</b> Approximately $65,000–$80,000 per year.<br/>
+      • <b>Learn more:</b>
+      <a href="https://www.indeed.com/hire/job-description/full-stack-developer"
+         target="_blank" rel="noopener">
+        https://www.indeed.com/hire/job-description/full-stack-developer
+      </a><br/><br/>
+
+      Would you like to learn about another career or finish?
+      <reply>
+        <text>Another career</text>
+        <postback>SELECT AGAIN</postback>
+      </reply>
+      <reply>
+        <text>Finish</text>
+        <postback>EXIT</postback>
+      </reply>
+    </template>
+  </category>
+
+  <!-- UX/UI Design -->
+  <category>
+    <pattern>UX/UI DESIGN</pattern>
+    <pattern>UX UI DESIGN</pattern>
+    <template>
+      <b>UX/UI Design</b><br/>
+      • <b>What they do:</b> Design user interfaces and experiences, create wireframes/prototypes, conduct user research and testing.<br/>
+      • <b>Skills &amp; Tools:</b> Figma, Sketch, Adobe XD, user research, prototyping, usability testing.<br/>
+      • <b>Junior Salary:</b> Approximately $60,000–$75,000 per year.<br/>
+      • <b>Learn more:</b>
+      <a href="https://uk.indeed.com/career-advice/finding-a-job/what-does-ui-designer-do"
+         target="_blank" rel="noopener">
+        https://uk.indeed.com/career-advice/finding-a-job/what-does-ui-designer-do
+      </a><br/><br/>
+
+      Would you like to learn about another career or finish?
+      <reply>
+        <text>Another career</text>
+        <postback>SELECT AGAIN</postback>
+      </reply>
+      <reply>
+        <text>Finish</text>
+        <postback>EXIT</postback>
+      </reply>
+    </template>
+  </category>
+
+  <!-- Systems Administration -->
+  <category>
+    <pattern>SYSTEMS ADMINISTRATION</pattern>
+    <template>
+      <b>Systems Administration</b><br/>
+      • <b>What they do:</b> Install, configure, and maintain servers, networks, and IT infrastructure; monitor performance and security.<br/>
+      • <b>Skills &amp; Tools:</b> Linux/Windows Server, Bash/PowerShell scripting, virtualization (VMware), networking (TCP/IP), monitoring tools.<br/>
+      • <b>Junior Salary:</b> Approximately $55,000–$70,000 per year.<br/>
+      • <b>Learn more:</b>
+      <a href="https://www.indeed.com/hire/job-description/system-administrator"
+         target="_blank" rel="noopener">
+        https://www.indeed.com/hire/job-description/system-administrator
+      </a><br/><br/>
+
+      Would you like to learn about another career or finish?
+      <reply>
+        <text>Another career</text>
+        <postback>SELECT AGAIN</postback>
+      </reply>
+      <reply>
+        <text>Finish</text>
+        <postback>EXIT</postback>
+      </reply>
+    </template>
+  </category>
+
+  <!-- Machine Learning Engineering -->
+  <category>
+    <pattern>MACHINE LEARNING ENGINEERING</pattern>
+    <template>
+      <b>Machine Learning Engineering</b><br/>
+      • <b>What they do:</b> Develop, train, and deploy machine learning models; work with data pipelines and production environments.<br/>
+      • <b>Skills &amp; Tools:</b> Python (TensorFlow, PyTorch, scikit-learn), data preprocessing, Docker, cloud (AWS/GCP/Azure), REST APIs.<br/>
+      • <b>Junior Salary:</b> Approximately $80,000–$100,000 per year.<br/>
+      • <b>Learn more:</b>
+      <a href="https://www.indeed.com/career-advice/career-development/machine-learning-engineer"
+         target="_blank" rel="noopener">
+        https://www.indeed.com/career-advice/career-development/machine-learning-engineer
+      </a><br/><br/>
+
+      Would you like to learn about another career or finish?
+      <reply>
+        <text>Another career</text>
+        <postback>SELECT AGAIN</postback>
+      </reply>
+      <reply>
+        <text>Finish</text>
+        <postback>EXIT</postback>
+      </reply>
+    </template>
+  </category>
+
+  <!-- Handle selecting another career -->
+  <category>
+    <pattern>SELECT AGAIN</pattern>
+    <template>
+      Which career would you like to learn more about?
+      <reply>
+        <text>Full-Stack Engineering</text>
+        <postback>FULL STACK ENGINEERING</postback>
+      </reply>
+      <reply>
+        <text>Data Analysis</text>
+        <postback>DATA ANALYSIS</postback>
+      </reply>
+      <reply>
+        <text>UX/UI Design</text>
+        <postback>UX UI DESIGN</postback>
+      </reply>
+      <reply>
+        <text>Systems Administration</text>
+        <postback>SYSTEMS ADMINISTRATION</postback>
+      </reply>
+      <reply>
+        <text>ML Engineering</text>
+        <postback>MACHINE LEARNING ENGINEERING</postback>
+      </reply>
+    </template>
+  </category>
+
+  <!-- Handle finishing the chat -->
+  <category>
+    <pattern>EXIT</pattern>
+    <template>
+      <think>
+        <set name="asked_quiz">false</set>
+        <set name="quiz_step">0</set>
+        <set name="fullstack_score">0</set>
+        <set name="data_score">0</set>
+        <set name="ux_score">0</set>
+        <set name="sys_score">0</set>
+        <set name="ml_score">0</set>
+      </think>
+      Thanks for exploring career options with me! 👋  
+      If you ever want to run the quiz again or learn more, just say “hi.”
+    </template>
+  </category>
+
+</aiml>
